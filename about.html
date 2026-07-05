@@ -16,50 +16,42 @@
   <div class="reading-progress" id="reading-progress"></div>
 
   <header>
-    <nav class="fixed top-0 left-0 right-0 z-50 w-full" role="navigation">
-      <div class="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-14">
-        <a href="index.html" class="font-bold text-lg text-[var(--text-primary)] tracking-tight whitespace-nowrap flex items-center gap-2">
-          <span class="logo-icon">M</span>
-          <span>MAST</span>
-        </a>
-        <div class="hidden lg:flex items-center gap-8">
-          <div class="nav-dropdown">
-            <button class="nav-link flex items-center gap-1">Percorsi <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
-            <div class="nav-dropdown-menu">
-              <a href="iot.html" class="nav-dropdown-item"><i data-lucide="radio" class="w-4 h-4 text-emerald-500"></i>Internet of Things</a>
-              <a href="ai.html" class="nav-dropdown-item"><i data-lucide="brain" class="w-4 h-4 text-violet-500"></i>Artificial Intelligence</a>
-              <a href="cyber.html" class="nav-dropdown-item"><i data-lucide="shield" class="w-4 h-4 text-amber-500"></i>Cyberworld</a>
-            </div>
+    <nav class="fixed top-0 left-0 right-0 z-50 w-full" role="navigation" aria-label="Menu principale">
+      <div class="max-w-[1024px] mx-auto px-6 flex items-center justify-between h-12">
+        <a href="index.html" class="font-semibold text-base text-[var(--text-primary)] tracking-tight whitespace-nowrap" aria-label="MAST Summer School - Home">MAST</a>
+        
+        <div class="flex items-center gap-4">
+          <button id="theme-toggle" class="theme-toggle hidden md:flex" aria-label="Cambia tema">
+            <i data-lucide="sun" class="w-5 h-5 theme-icon-light"></i>
+            <i data-lucide="moon" class="w-5 h-5 theme-icon-dark hidden"></i>
+          </button>
+          
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-[var(--bg-secondary)] transition-colors" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
+            <i data-lucide="menu" class="w-5 h-5 text-[var(--text-primary)]"></i>
+          </button>
+          
+          <div class="hidden md:flex items-center gap-6">
+            <a href="about.html" class="text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--apple-blue)] transition-colors">Chi Siamo</a>
+            <a href="speakers.html" class="text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--apple-blue)] transition-colors">Docenti</a>
+            <a href="contact.html" class="text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--apple-blue)] transition-colors">Contatti</a>
+            <a href="prenota.html" class="btn-apple btn-apple-primary text-xs py-2 px-4">Iscriviti</a>
           </div>
-          <a href="about.html" class="nav-link font-semibold">Chi Siamo</a>
-          <a href="speakers.html" class="nav-link">Docenti</a>
-          <a href="gallery.html" class="nav-link">Gallery</a>
-          <a href="location.html" class="nav-link">Location</a>
-          <a href="contact.html" class="nav-link">Contatti</a>
-          <div class="flex items-center gap-3">
-            <button id="theme-toggle" class="theme-toggle" aria-label="Cambia tema">
+        </div>
+      </div>
+      
+      <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--border-color)]">
+        <div class="px-6 py-4 space-y-1">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-sm font-medium text-[var(--text-secondary)]">Tema</span>
+            <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Cambia tema">
               <i data-lucide="sun" class="w-5 h-5 theme-icon-light"></i>
               <i data-lucide="moon" class="w-5 h-5 theme-icon-dark hidden"></i>
             </button>
-            <a href="prenota.html" class="btn-apple btn-apple-primary text-sm py-2 px-5">Iscriviti</a>
           </div>
-        </div>
-        <div class="flex items-center gap-2 lg:hidden">
-          <button id="theme-toggle-mobile" class="theme-toggle"><i data-lucide="sun" class="w-5 h-5 theme-icon-light"></i><i data-lucide="moon" class="w-5 h-5 theme-icon-dark hidden"></i></button>
-          <button id="mobile-menu-btn" class="p-2 rounded-lg hover:bg-[var(--bg-secondary)]"><i data-lucide="menu" class="w-6 h-6 text-[var(--text-primary)]"></i></button>
-        </div>
-      </div>
-      <div id="mobile-menu" class="hidden lg:hidden border-t border-[var(--border-color)] bg-[var(--bg-primary)]">
-        <div class="max-w-[1200px] mx-auto px-6 py-6 space-y-4">
-          <a href="iot.html" class="block py-2 text-[var(--text-primary)]">IoT</a>
-          <a href="ai.html" class="block py-2 text-[var(--text-primary)]">AI</a>
-          <a href="cyber.html" class="block py-2 text-[var(--text-primary)]">Cyberworld</a>
-          <a href="about.html" class="block py-2 font-semibold text-[var(--text-primary)]">Chi Siamo</a>
-          <a href="speakers.html" class="block py-2 text-[var(--text-primary)]">Docenti</a>
-          <a href="gallery.html" class="block py-2 text-[var(--text-primary)]">Gallery</a>
-          <a href="location.html" class="block py-2 text-[var(--text-primary)]">Location</a>
-          <a href="contact.html" class="block py-2 text-[var(--text-primary)]">Contatti</a>
-          <a href="prenota.html" class="btn-apple btn-apple-primary w-full text-center">Iscriviti</a>
+          <a href="about.html" class="block py-3 text-base text-[var(--text-primary)]">Chi Siamo</a>
+          <a href="speakers.html" class="block py-3 text-base text-[var(--text-primary)]">Docenti</a>
+          <a href="contact.html" class="block py-3 text-base text-[var(--text-primary)]">Contatti</a>
+          <a href="prenota.html" class="btn-apple btn-apple-primary w-full mt-4 text-center">Iscriviti</a>
         </div>
       </div>
     </nav>
