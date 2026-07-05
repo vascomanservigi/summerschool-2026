@@ -89,27 +89,7 @@
           Manifatture di Arti, Sperimentazione e Tecnologia.
         </p>
         
-        <!-- Countdown Timer -->
-        <div class="countdown-container fade-up fade-up-3" id="countdown">
-          <div class="countdown-item">
-            <div class="countdown-value" id="days">00</div>
-            <div class="countdown-label">Giorni</div>
-          </div>
-          <div class="countdown-item">
-            <div class="countdown-value" id="hours">00</div>
-            <div class="countdown-label">Ore</div>
-          </div>
-          <div class="countdown-item">
-            <div class="countdown-value" id="minutes">00</div>
-            <div class="countdown-label">Minuti</div>
-          </div>
-          <div class="countdown-item">
-            <div class="countdown-value" id="seconds">00</div>
-            <div class="countdown-label">Secondi</div>
-          </div>
-        </div>
-        
-        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center fade-up fade-up-4">
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center fade-up fade-up-3">
           <a href="prenota.html" class="btn-apple btn-apple-primary">
             Iscriviti Ora
           </a>
@@ -394,28 +374,6 @@
       const scrolled = (window.scrollY / scrollHeight) * 100;
       document.getElementById('reading-progress').style.width = scrolled + '%';
     });
-    
-    // Countdown Timer
-    function updateCountdown() {
-      const eventDate = new Date('2026-07-03T16:00:00+02:00').getTime();
-      const now = new Date().getTime();
-      const distance = eventDate - now;
-      
-      if (distance > 0) {
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-        document.getElementById('days').textContent = String(days).padStart(2, '0');
-        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-      }
-    }
-    
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
     
     // Theme Toggle
     const themeToggle = document.getElementById('theme-toggle');
