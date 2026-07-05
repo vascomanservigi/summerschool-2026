@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Iscriviti alla MAST Summer School 2026. Compila il modulo per prenotare il tuo posto nei percorsi IoT, AI o Cybersecurity.">
+  <meta name="keywords" content="iscrizione, summer school, MAST, IoT, AI, cybersecurity">
+  
+  <meta property="og:title" content="Iscriviti - MAST Summer School 2026">
+  <meta property="og:description" content="Prenota il tuo posto nella MAST Summer School 2026. Classi a numero chiuso.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  
+  <title>Iscriviti - MAST Summer School 2026</title>
+  
+  <link rel="canonical" href="prenota.html">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+</head>
+<body class="w-full min-h-screen bg-slate-50 text-slate-900 flex flex-col justify-between overflow-x-hidden antialiased">
+
+  <header>
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/90 border-b border-gray-200 w-full" role="navigation" aria-label="Menu principale">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+        <a href="index.html" class="font-bold text-base sm:text-lg md:text-xl tracking-tight text-slate-900 whitespace-nowrap" aria-label="MAST Summer School - Home">MAST Summer School</a>
+        
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
+          <i data-lucide="menu" class="w-6 h-6 text-slate-700"></i>
+        </button>
+        
+        <div class="hidden md:flex items-center gap-4 lg:gap-6">
+          <a href="iot.html" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded">IoT</a> 
+          <a href="ai.html" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 rounded">AI</a> 
+          <a href="cyber.html" class="text-sm font-medium text-gray-600 hover:text-amber-600 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 rounded">Cybersecurity</a>
+          <a href="prenota.html" class="text-sm font-semibold px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" aria-current="page">Prenota</a>
+        </div>
+      </div>
+      
+      <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-xl">
+        <div class="px-4 py-4 space-y-2">
+          <a href="iot.html" class="block py-2 px-3 rounded-lg text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">IoT</a>
+          <a href="ai.html" class="block py-2 px-3 rounded-lg text-gray-600 hover:bg-violet-50 hover:text-violet-600 transition-colors">AI</a>
+          <a href="cyber.html" class="block py-2 px-3 rounded-lg text-gray-600 hover:bg-amber-50 hover:text-amber-600 transition-colors">Cybersecurity</a>
+          <a href="prenota.html" class="block py-2 px-3 rounded-lg bg-indigo-600 text-white font-semibold text-center mt-2" aria-current="page">Prenota</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-20 pb-12 w-full flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div class="w-full max-w-xl bg-white p-5 sm:p-8 rounded-2xl border border-slate-200 shadow-sm my-4">
+      <h1 class="text-2xl sm:text-3xl font-bold text-center mb-1 text-slate-900">Prenota il tuo posto</h1>
+      <p class="text-center text-slate-500 mb-6 text-xs sm:text-sm px-2">Le classi sono a numero chiuso. Compila il modulo per bloccare la tua iscrizione.</p>
+      
+      <form id="registration-form" class="space-y-4 sm:space-y-5" novalidate>
+        <div>
+          <label class="block text-xs sm:text-sm font-semibold text-slate-700 mb-1" for="field-name">Nome Completo <span class="text-red-500" aria-hidden="true">*</span></label>
+          <input 
+            id="field-name" 
+            name="name" 
+            type="text" 
+            required 
+            minlength="2"
+            autocomplete="name"
+            aria-required="true"
+            aria-describedby="name-error"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-slate-50 text-sm sm:text-base transition-colors"
+            placeholder="Mario Rossi"
+          >
+          <p id="name-error" class="mt-1 text-xs text-red-600 hidden" role="alert"></p>
+        </div>
+        
+        <div>
+          <label class="block text-xs sm:text-sm font-semibold text-slate-700 mb-1" for="field-email">Indirizzo Email <span class="text-red-500" aria-hidden="true">*</span></label>
+          <input 
+            id="field-email" 
+            name="email" 
+            type="email" 
+            required 
+            autocomplete="email"
+            aria-required="true"
+            aria-describedby="email-error"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-slate-50 text-sm sm:text-base transition-colors"
+            placeholder="mario.rossi@email.com"
+          >
+          <p id="email-error" class="mt-1 text-xs text-red-600 hidden" role="alert"></p>
+        </div>
+        
+        <div>
+          <label class="block text-xs sm:text-sm font-semibold text-slate-700 mb-1" for="field-track">Seleziona il Percorso <span class="text-red-500" aria-hidden="true">*</span></label>
+          <select 
+            id="field-track" 
+            name="track"
+            required 
+            aria-required="true"
+            aria-describedby="track-error"
+            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-slate-50 text-sm sm:text-base transition-colors"
+          >
+            <option value="">Scegli un'opzione...</option>
+            <option value="iot">Internet of Things</option>
+            <option value="ai">Artificial Intelligence</option>
+            <option value="cyber">Cyberworld</option>
+          </select>
+          <p id="track-error" class="mt-1 text-xs text-red-600 hidden" role="alert"></p>
+        </div>
+        
+        <button 
+          type="submit" 
+          class="w-full py-3 rounded-xl font-semibold text-base bg-indigo-600 text-white transition-all hover:bg-indigo-700 active:scale-95 shadow-md mt-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          Invia Candidatura
+        </button>
+      </form>
+
+      <div id="form-success" class="hidden text-center py-4" role="status" aria-live="polite">
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-100 mb-3" aria-hidden="true">
+          <i data-lucide="check-circle" class="w-6 h-6 text-emerald-600"></i>
+        </div>
+        <p class="font-bold text-lg sm:text-xl text-slate-900">Registrazione completata!</p>
+        <p class="text-slate-600 mt-1.5 text-xs sm:text-sm">Ti abbiamo inviato un'email con tutti i dettagli.</p>
+        <div class="mt-6">
+          <a href="index.html" class="inline-flex items-center gap-1.5 text-indigo-600 font-semibold text-sm hover:underline focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 rounded">
+            <i data-lucide="arrow-left" class="w-4 h-4" aria-hidden="true"></i> Torna alla Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="w-full py-6 md:py-8 text-center border-t border-slate-200 bg-white px-4" role="contentinfo">
+    <p class="text-xs sm:text-sm text-slate-500 font-medium">Innovazione e formazione per il futuro digitale.</p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    
+    const params = new URLSearchParams(window.location.search);
+    const trackParam = params.get('track');
+    if (trackParam && ['iot', 'ai', 'cyber'].includes(trackParam)) {
+      document.getElementById('field-track').value = trackParam;
+    }
+    
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+      mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('hidden');
+      mobileMenuBtn.innerHTML = isExpanded 
+        ? '<i data-lucide="menu" class="w-6 h-6 text-slate-700"></i>'
+        : '<i data-lucide="x" class="w-6 h-6 text-slate-700"></i>';
+      lucide.createIcons();
+    });
+    
+    const form = document.getElementById('registration-form');
+    const nameInput = document.getElementById('field-name');
+    const emailInput = document.getElementById('field-email');
+    const trackSelect = document.getElementById('field-track');
+    
+    const errorMessages = {
+      name: 'Inserisci un nome valido (minimo 2 caratteri)',
+      email: 'Inserisci un indirizzo email valido',
+      track: 'Seleziona un percorso'
+    };
+    
+    function showError(field, message) {
+      const errorEl = document.getElementById(`${field}-error`);
+      const inputEl = document.getElementById(`field-${field}`);
+      errorEl.textContent = message;
+      errorEl.classList.remove('hidden');
+      inputEl.classList.add('border-red-500');
+      inputEl.setAttribute('aria-invalid', 'true');
+    }
+    
+    function clearError(field) {
+      const errorEl = document.getElementById(`${field}-error`);
+      const inputEl = document.getElementById(`field-${field}`);
+      errorEl.classList.add('hidden');
+      inputEl.classList.remove('border-red-500');
+      inputEl.setAttribute('aria-invalid', 'false');
+    }
+    
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+    
+    nameInput.addEventListener('blur', () => {
+      if (nameInput.value.trim().length < 2) {
+        showError('name', errorMessages.name);
+      } else {
+        clearError('name');
+      }
+    });
+    
+    emailInput.addEventListener('blur', () => {
+      if (!validateEmail(emailInput.value)) {
+        showError('email', errorMessages.email);
+      } else {
+        clearError('email');
+      }
+    });
+    
+    trackSelect.addEventListener('change', () => {
+      if (trackSelect.value) {
+        clearError('track');
+      }
+    });
+    
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let isValid = true;
+      
+      if (nameInput.value.trim().length < 2) {
+        showError('name', errorMessages.name);
+        isValid = false;
+      } else {
+        clearError('name');
+      }
+      
+      if (!validateEmail(emailInput.value)) {
+        showError('email', errorMessages.email);
+        isValid = false;
+      } else {
+        clearError('email');
+      }
+      
+      if (!trackSelect.value) {
+        showError('track', errorMessages.track);
+        isValid = false;
+      } else {
+        clearError('track');
+      }
+      
+      if (isValid) {
+        this.classList.add('hidden');
+        document.getElementById('form-success').classList.remove('hidden');
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>

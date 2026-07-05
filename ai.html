@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Percorso Artificial Intelligence alla MAST Summer School 2026. Impara Machine Learning, Neural Networks e LLM Tuning con competenze pratiche.">
+  <meta name="keywords" content="intelligenza artificiale, machine learning, neural networks, LLM, summer school, MAST">
+  
+  <meta property="og:title" content="Artificial Intelligence - MAST Summer School 2026">
+  <meta property="og:description" content="Impara i segreti del Machine Learning e progetta sistemi capaci di automazione cognitiva.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  
+  <title>Artificial Intelligence - MAST Summer School 2026</title>
+  
+  <link rel="canonical" href="ai.html">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = { theme: { extend: { backgroundImage: { 'accent-ai': "linear-gradient(135deg, #ede9fe, #fce7f3)" } } } }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+</head>
+<body class="w-full min-h-screen bg-slate-50 text-slate-900 flex flex-col justify-between overflow-x-hidden antialiased">
+
+  <header>
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/90 border-b border-gray-200 w-full" role="navigation" aria-label="Menu principale">
+      <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+        <a href="index.html" class="font-bold text-base sm:text-lg md:text-xl text-slate-900 whitespace-nowrap" aria-label="MAST Summer School - Home">MAST Summer School</a>
+        
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
+          <i data-lucide="menu" class="w-6 h-6 text-slate-700"></i>
+        </button>
+        
+        <div class="hidden md:flex items-center gap-3 sm:gap-4 lg:gap-6">
+          <a href="iot.html" class="text-xs sm:text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded">IoT</a> 
+          <a href="ai.html" class="text-xs sm:text-sm font-bold text-violet-600 border-b-2 border-violet-600 pb-1" aria-current="page">AI</a> 
+          <a href="cyber.html" class="text-xs sm:text-sm font-medium text-gray-600 hover:text-amber-600 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 rounded">Cybersecurity</a>
+          <a href="prenota.html?track=ai" class="text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Prenota</a>
+        </div>
+      </div>
+      
+      <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-xl">
+        <div class="px-4 py-4 space-y-2">
+          <a href="iot.html" class="block py-2 px-3 rounded-lg text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">IoT</a>
+          <a href="ai.html" class="block py-2 px-3 rounded-lg bg-violet-50 text-violet-600 font-semibold" aria-current="page">AI</a>
+          <a href="cyber.html" class="block py-2 px-3 rounded-lg text-gray-600 hover:bg-amber-50 hover:text-amber-600 transition-colors">Cybersecurity</a>
+          <a href="prenota.html?track=ai" class="block py-2 px-3 rounded-lg bg-indigo-600 text-white font-semibold text-center mt-2">Prenota</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-16 w-full flex-grow flex flex-col items-center">
+    <section class="w-full bg-accent-ai px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center border-b border-violet-100 flex flex-col items-center" aria-labelledby="page-title">
+      <div class="w-16 h-16 md:w-20 md:h-20 bg-white text-violet-600 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 shadow-sm" aria-hidden="true">
+        <i data-lucide="brain" class="w-8 h-8 md:w-10 md:h-10"></i>
+      </div>
+      <h1 id="page-title" class="font-bold text-2xl sm:text-4xl md:text-5xl text-violet-800">Artificial Intelligence</h1>
+      <p class="mt-3 max-w-2xl text-violet-950 text-xs sm:text-base md:text-lg px-2">Impara i segreti del Machine Learning e progetta sistemi capaci di automazione cognitiva.</p>
+    </section>
+
+    <section class="w-full bg-white border-b border-slate-200 py-12 px-4 sm:px-6 lg:px-8 flex justify-center" aria-labelledby="topics-title">
+      <div class="w-full max-w-4xl">
+        <h2 id="topics-title" class="text-xl sm:text-2xl font-bold mb-4">I Core Topics del Programma</h2>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="inline-block px-3 py-1.5 bg-violet-100 text-violet-800 text-xs font-semibold rounded-full">Machine Learning</span> 
+          <span class="inline-block px-3 py-1.5 bg-violet-100 text-violet-800 text-xs font-semibold rounded-full">Neural Networks</span> 
+          <span class="inline-block px-3 py-1.5 bg-violet-100 text-violet-800 text-xs font-semibold rounded-full">LLM Tuning</span> 
+          <span class="inline-block px-3 py-1.5 bg-violet-100 text-violet-800 text-xs font-semibold rounded-full">Computer Vision</span>
+        </div>
+        <p class="leading-relaxed text-slate-600 text-xs sm:text-sm md:text-base">Il piano di studi copre l'addestramento dei modelli matematici complessi in Python, l'esplorazione dei flussi strutturati e un'introduzione pratica ai modelli generativi moderni.</p>
+      </div>
+    </section>
+
+    <section class="w-full bg-white border-b border-slate-200 py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center" aria-labelledby="schedule-title">
+      <div class="w-full max-w-4xl mb-6">
+        <h2 id="schedule-title" class="text-xl sm:text-2xl font-bold text-slate-900">Programma Settimanale Ufficiale</h2>
+      </div>
+      <div class="w-full max-w-4xl overflow-x-auto border border-slate-200 rounded-2xl shadow-sm schedule-table">
+        <table class="min-w-full divide-y divide-slate-100 text-left">
+          <thead>
+            <tr class="bg-slate-50">
+              <th class="py-3.5 px-5 font-bold text-slate-700 text-xs sm:text-sm w-1/4">Giorno / Orario</th>
+              <th class="py-3.5 px-5 font-bold text-slate-700 text-xs sm:text-sm w-3/4">Attività AI & Sessioni Comuni</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-xs sm:text-sm text-slate-600 bg-white">
+            <tr>
+              <td class="py-4 px-5 font-semibold text-violet-600 whitespace-nowrap">Venerdì 3 Luglio</td>
+              <td class="py-4 px-5 min-w-[240px]">
+                <strong class="text-slate-900 block mb-1">16:00 - 22:00 (Comune)</strong>
+                Welcome & MAST Overview; Presentazione Scuole con i Coordinatori.<br>
+                Kick-off, Ice-breaking + Unboxing robot con logiche di automazione.<br>
+                <span class="text-xs text-slate-400 block mt-1">Cena presso «Trattoria Paradisino» & Social Gathering</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-4 px-5 font-semibold text-violet-600 whitespace-nowrap">Sabato 4 Luglio</td>
+              <td class="py-4 px-5">
+                <strong class="text-slate-900 block mb-1">09:00 - 13:00 (Verticale AI)</strong>
+                Algoritmi predittivi e configurazione ambienti di calcolo Python.<br>
+                <strong class="text-slate-900 block mt-2 mb-1">14:00 - 22:00 (Comune)</strong>
+                Internet 101 + Laboratorio di Team Building.<br>
+                <span class="text-xs text-slate-400 block mt-1">Smartphone Free Lunch | Cena presso «Berberè» & Pool Party presso The Social Hub</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-4 px-5 font-semibold text-violet-600 whitespace-nowrap">Domenica 5 Luglio</td>
+              <td class="py-4 px-5">
+                <strong class="text-slate-900 block mb-1">09:00 - 13:00 (Verticale AI)</strong>
+                Data exploration: pulizia dei dataset e classificazione logica.<br>
+                <strong class="text-slate-900 block mt-2 mb-1">14:00 - 22:00 (Comune)</strong>
+                Dall'on-premise al Cloud + Intervento di un Ospite Universitario (UNIMORE).<br>
+                <span class="text-xs text-slate-400 block mt-1">Cena sui colli presso «Spaccio Belfiore» & Social Gathering</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-4 px-5 font-semibold text-violet-600 whitespace-nowrap">Lunedì 6 Luglio</td>
+              <td class="py-4 px-5">
+                <strong class="text-slate-900 block mb-1">09:00 - 14:00 (Comune)</strong>
+                Giochiamo con i dati & Vibe Coding 101.<br>
+                <strong class="text-slate-900 block mt-2 mb-1">15:00 - 22:00 (Specifico AI)</strong>
+                Comunicazione Efficace + <span class="font-semibold text-violet-700">Lancio dei Project Work AI</span>.<br>
+                <span class="text-xs text-slate-400 block mt-1">Smartphone Free Lunch | Cena presso Bologna Business School</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-4 px-5 font-semibold text-violet-600 whitespace-nowrap">Martedì 7 Luglio</td>
+              <td class="py-4 px-5">
+                <strong class="text-slate-900 block mb-1">10:00 - 12:30 (Comune)</strong>
+                Company Visit: Data Center Herabit.<br>
+                <strong class="text-slate-900 block mt-2 mb-1">15:00 - 22:00 (Specifico AI)</strong>
+                Incontro con gli Ospiti di Vertiv + Sviluppo del <span class="font-semibold text-violet-700">Project Work AI</span>.<br>
+                <span class="text-xs text-slate-400 block mt-1">Visita al centro storico & Cena presso «Trattoria Da Me»</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-4 px-5 font-semibold text-violet-600 whitespace-nowrap">Mercoledì 8 Luglio</td>
+              <td class="py-4 px-5">
+                <strong class="text-slate-900 block mb-1">09:00 - 14:00 (Specifico AI)</strong>
+                Addestramento, ottimizzazione e tuning modelli nel <span class="font-semibold text-violet-700">Project Work AI</span>.<br>
+                <strong class="text-slate-900 block mt-2 mb-1">15:00 - 22:00 (Comune)</strong>
+                Sviluppo codici + Visita Mostra & Laboratorio (Staff MAST. Gallery).<br>
+                <span class="text-xs text-slate-400 block mt-1">Smartphone Free Lunch | Cena presso «Taverna del Castoro» & Serata Karaoke</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-4 px-5 font-semibold text-violet-600 whitespace-nowrap">Giovedì 9 Luglio</td>
+              <td class="py-4 px-5">
+                <strong class="text-slate-900 block mb-1">09:00 - 14:00 (Specifico AI)</strong>
+                Deployment dei modelli e testing predittivo per il <span class="font-semibold text-violet-700">Project Work AI</span>.<br>
+                <strong class="text-slate-900 block mt-2 mb-1">15:00 - 22:00 (Comune)</strong>
+                Incontro con Ospite istituzionale (Almacube) + Setup Pitch di Presentazione.<br>
+                <span class="text-xs text-slate-400 block mt-1">Cena presso «Villa Aretusi» & Orientamento Universitario</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="py-4 px-5 font-semibold text-violet-600 whitespace-nowrap">Venerdì 10 Luglio</td>
+              <td class="py-4 px-5">
+                <strong class="text-slate-900 block mb-1">09:00 - 13:00 (Comune)</strong>
+                <span class="font-bold text-violet-700">PROJECT PRESENTATION</span> davanti ai Coordinatori.<br>
+                <strong class="text-slate-900 block mt-2 mb-1">13:00 (Comune)</strong>
+                <span class="font-bold text-indigo-700">CLOSING CEREMONY</span>.<br>
+                <span class="text-xs text-slate-400 block mt-1">Lunch di chiusura</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="w-full max-w-4xl mt-8 flex flex-col sm:flex-row gap-4 justify-between">
+        <a href="index.html" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-violet-800 text-xs sm:text-sm font-semibold transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2">
+          <i data-lucide="arrow-left" class="w-4 h-4" aria-hidden="true"></i> Torna alla Home
+        </a>
+        <a href="prenota.html?track=ai" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-xs sm:text-sm font-semibold transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2">
+          Iscriviti ora <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>  
+  </main>
+
+  <footer class="w-full py-6 md:py-8 text-center border-t border-slate-200 bg-white px-4" role="contentinfo">
+    <p class="text-xs sm:text-sm text-slate-500 font-medium">Innovazione e formazione per il futuro digitale.</p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+      mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('hidden');
+      mobileMenuBtn.innerHTML = isExpanded 
+        ? '<i data-lucide="menu" class="w-6 h-6 text-slate-700"></i>'
+        : '<i data-lucide="x" class="w-6 h-6 text-slate-700"></i>';
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
