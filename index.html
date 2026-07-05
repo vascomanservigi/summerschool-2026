@@ -116,29 +116,6 @@
       </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="w-full py-20 md:py-32 bg-[var(--bg-secondary)]">
-      <div class="max-w-[1024px] mx-auto px-6">
-        <div class="text-center mb-12">
-          <h2 class="section-title mb-4">I Numeri di MAST</h2>
-        </div>
-        <div class="stats-container">
-          <div class="stat-item">
-            <div class="stat-number" data-count="8">0</div>
-            <div class="stat-label">Giorni intensivi</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number" data-count="3">0</div>
-            <div class="stat-label">Percorsi specialistici</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number" data-count="50">0</div>
-            <div class="stat-label">Posti disponibili</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Percorsi Section -->
     <section id="percorsi" class="max-w-[1024px] mx-auto px-6 py-20 md:py-32 w-full" aria-labelledby="tracks-title">
       <div class="w-full text-center mb-16">
@@ -186,42 +163,7 @@
           </a>
         </article>
       </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="w-full py-20 md:py-32 bg-[var(--bg-secondary)]">
-      <div class="max-w-[1024px] mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="section-title mb-4">Cosa Dicono i Partecipanti</h2>
-          <p class="section-subtitle">Le esperienze di chi ha vissuto la MAST Summer School.</p>
-        </div>
-        
-        <div class="testimonials-carousel">
-          <div class="testimonials-track" id="testimonials-track">
-            <div class="testimonial-card">
-              <p class="testimonial-text">"Un'esperienza unica che mi ha permesso di acquisire competenze pratiche che ho subito potuto applicare nel mio lavoro. I docenti sono eccezionali."</p>
-              <div class="testimonial-author">Marco R.</div>
-              <div class="testimonial-role">AI Track - Edizione 2025</div>
-            </div>
-            <div class="testimonial-card">
-              <p class="testimonial-text">"La MAST Summer School ha cambiato il mio modo di vedere la tecnologia. Ora ho le basi per sviluppare i miei progetti IoT in autonomia."</p>
-              <div class="testimonial-author">Giulia T.</div>
-              <div class="testimonial-role">IoT Track - Edizione 2025</div>
-            </div>
-            <div class="testimonial-card">
-              <p class="testimonial-text">"Il percorso di Cybersecurity è intensivo e stimolante. Ho imparato più in una settimana che in un semestre universitario."</p>
-              <div class="testimonial-author">Alessandro B.</div>
-              <div class="testimonial-role">Cyber Track - Edizione 2025</div>
-            </div>
-          </div>
-          <div class="carousel-dots">
-            <button class="carousel-dot active" aria-label="Testimonianza 1"></button>
-            <button class="carousel-dot" aria-label="Testimonianza 2"></button>
-            <button class="carousel-dot" aria-label="Testimonianza 3"></button>
-          </div>
-        </div>
-      </div>
-    </section>
+     </section>
 
     <!-- FAQ Section -->
     <section id="faq" class="max-w-[1024px] mx-auto px-6 py-20 md:py-32 w-full" aria-labelledby="faq-title">
@@ -291,19 +233,7 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="max-w-[1024px] mx-auto px-6 pb-20">
-      <div class="newsletter-section">
-        <h2 class="section-title text-2xl mb-4">Resta Aggiornato</h2>
-        <p class="text-[var(--text-secondary)] max-w-md mx-auto">Iscriviti alla newsletter per ricevere aggiornamenti su novità, scadenze e contenuti esclusivi.</p>
-        <form class="newsletter-form" id="newsletter-form">
-          <input type="email" placeholder="La tua email" required aria-label="Indirizzo email per newsletter">
-          <button type="submit" class="btn-apple btn-apple-primary">Iscriviti</button>
-        </form>
-      </div>
-    </section>
+     </section>
 
     <!-- Partners Section -->
     <section class="w-full py-20 md:py-32 bg-[var(--bg-secondary)]">
@@ -423,67 +353,7 @@
         mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-5 h-5 text-[var(--text-primary)]"></i>';
         lucide.createIcons();
       });
-    });
-    
-    // Stats Counter Animation
-    function animateCounters() {
-      const counters = document.querySelectorAll('.stat-number');
-      counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-count'));
-        const duration = 2000;
-        const start = 0;
-        const startTime = performance.now();
-        
-        function updateCounter(currentTime) {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const easeOut = 1 - Math.pow(1 - progress, 3);
-          counter.textContent = Math.floor(start + (target - start) * easeOut);
-          
-          if (progress < 1) {
-            requestAnimationFrame(updateCounter);
-          }
-        }
-        
-        requestAnimationFrame(updateCounter);
-      });
-    }
-    
-    // Intersection Observer for stats animation
-    const statsSection = document.querySelector('.stats-container');
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounters();
-          statsObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    
-    statsObserver.observe(statsSection);
-    
-    // Testimonials Carousel
-    const track = document.getElementById('testimonials-track');
-    const dots = document.querySelectorAll('.carousel-dot');
-    let currentSlide = 0;
-    const totalSlides = 3;
-    
-    function goToSlide(index) {
-      currentSlide = index;
-      track.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
-    }
-    
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => goToSlide(index));
-    });
-    
-    // Auto-advance carousel
-    setInterval(() => {
-      goToSlide((currentSlide + 1) % totalSlides);
-    }, 5000);
+     });
     
     // FAQ Accordion
     const faqItems = document.querySelectorAll('.faq-item');
@@ -498,14 +368,7 @@
         question.setAttribute('aria-expanded', !isActive);
         lucide.createIcons();
       });
-    });
-    
-    // Newsletter Form
-    document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      showToast('Grazie per l\'iscrizione!', 'success');
-      this.reset();
-    });
+     });
     
     // Back to Top Button
     const backToTop = document.getElementById('back-to-top');
