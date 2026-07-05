@@ -63,7 +63,7 @@
   </header>
 
   <main class="pt-12 w-full flex-grow">
-    <section class="w-full py-20 md:py-28 bg-[var(--apple-gray-6)]" aria-labelledby="page-title">
+    <section class="w-full py-20 md:py-28 bg-[var(--bg-secondary)]" aria-labelledby="page-title">
       <div class="max-w-[1024px] mx-auto px-6 text-center">
         <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6" style="background: rgba(48, 209, 88, 0.12);" aria-hidden="true">
           <i data-lucide="radio" class="w-10 h-10" style="color: var(--apple-emerald);"></i>
@@ -81,7 +81,7 @@
         <span class="apple-tag" style="background: rgba(48, 209, 88, 0.12); color: var(--apple-emerald);">Edge Computing</span> 
         <span class="apple-tag" style="background: rgba(48, 209, 88, 0.12); color: var(--apple-emerald);">Cloud Integration</span>
       </div>
-      <p class="text-lg text-[var(--apple-gray-3)] leading-relaxed max-w-3xl">Il percorso approfondirà i concetti legati all'ecosistema dell'Internet delle cose, partendo dalle basi della sensoristica hardware fino ad arrivare all'invio sicuro dei dati verso server cloud dedicati.</p>
+      <p class="text-lg text-[var(--text-secondary)] leading-relaxed max-w-3xl">Il percorso approfondirà i concetti legati all'ecosistema dell'Internet delle cose, partendo dalle basi della sensoristica hardware fino ad arrivare all'invio sicuro dei dati verso server cloud dedicati.</p>
     </section>
 
     <section class="max-w-[1024px] mx-auto px-6 pb-20" aria-labelledby="schedule-title">
@@ -188,8 +188,9 @@
     </section>
   </main>
 
-  <footer class="w-full py-8 text-center px-6" role="contentinfo">
-    <p class="text-sm text-[var(--apple-gray-4)]">Manifatture di Arti, Sperimentazione e Tecnologia.</p>
+  <footer class="w-full py-8 text-center px-6 bg-[var(--bg-secondary)]">
+    <p class="text-sm text-[var(--text-secondary)] mb-2">Manifatture di Arti, Sperimentazione e Tecnologia.</p>
+    <p class="text-xs text-[var(--text-secondary)]">Via Federico Ozanam 18, Bologna</p>
   </footer>
 
   <script>
@@ -203,8 +204,8 @@
       mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
       mobileMenu.classList.toggle('hidden');
       mobileMenuBtn.innerHTML = isExpanded 
-        ? '<i data-lucide="menu" class="w-5 h-5 text-[var(--apple-gray-1)]"></i>'
-        : '<i data-lucide="x" class="w-5 h-5 text-[var(--apple-gray-1)]"></i>';
+        ? '<i data-lucide="menu" class="w-5 h-5 text-[var(--text-primary)]"></i>'
+        : '<i data-lucide="x" class="w-5 h-5 text-[var(--text-primary)]"></i>';
       lucide.createIcons();
     });
   </script>
