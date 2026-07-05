@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Iscriviti alla MAST Summer School 2026. Compila il modulo per prenotare il tuo posto nei percorsi IoT, AI o Cybersecurity.">
   <meta name="keywords" content="iscrizione, summer school, MAST, IoT, AI, cybersecurity">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light dark">
   
   <meta property="og:title" content="Iscriviti - MAST Summer School 2026">
   <meta property="og:description" content="Prenota il tuo posto nella MAST Summer School 2026. Classi a numero chiuso.">
@@ -20,28 +22,45 @@
 </head>
 <body class="w-full min-h-screen flex flex-col overflow-x-hidden">
 
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress" id="reading-progress"></div>
+
   <header>
     <nav class="fixed top-0 left-0 right-0 z-50 w-full" role="navigation" aria-label="Menu principale">
       <div class="max-w-[1024px] mx-auto px-6 flex items-center justify-between h-12">
-        <a href="index.html" class="font-semibold text-base text-[var(--apple-gray-1)] tracking-tight whitespace-nowrap" aria-label="MAST Summer School - Home">MAST</a>
+        <a href="index.html" class="font-semibold text-base text-[var(--text-primary)] tracking-tight whitespace-nowrap" aria-label="MAST Summer School - Home">MAST</a>
         
-        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-[var(--apple-gray-6)] transition-colors" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
-          <i data-lucide="menu" class="w-5 h-5 text-[var(--apple-gray-1)]"></i>
-        </button>
-        
-        <div class="hidden md:flex items-center gap-8">
-          <a href="iot.html" class="text-xs font-medium text-[var(--apple-gray-3)] hover:text-[var(--apple-emerald)] transition-colors">IoT</a> 
-          <a href="ai.html" class="text-xs font-medium text-[var(--apple-gray-3)] hover:text-[var(--apple-violet)] transition-colors">AI</a> 
-          <a href="cyber.html" class="text-xs font-medium text-[var(--apple-gray-3)] hover:text-[var(--apple-amber)] transition-colors">Cybersecurity</a>
-          <a href="prenota.html" class="btn-apple btn-apple-primary text-xs py-2 px-4">Iscriviti</a>
+        <div class="flex items-center gap-4">
+          <button id="theme-toggle" class="theme-toggle hidden md:flex" aria-label="Cambia tema">
+            <i data-lucide="sun" class="w-5 h-5 theme-icon-light"></i>
+            <i data-lucide="moon" class="w-5 h-5 theme-icon-dark hidden"></i>
+          </button>
+          
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-[var(--bg-secondary)] transition-colors" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
+            <i data-lucide="menu" class="w-5 h-5 text-[var(--text-primary)]"></i>
+          </button>
+          
+          <div class="hidden md:flex items-center gap-8">
+            <a href="iot.html" class="text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--apple-emerald)] transition-colors">IoT</a> 
+            <a href="ai.html" class="text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--apple-violet)] transition-colors">AI</a> 
+            <a href="cyber.html" class="text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--apple-amber)] transition-colors">Cybersecurity</a>
+            <a href="prenota.html" class="btn-apple btn-apple-primary text-xs py-2 px-4">Iscriviti</a>
+          </div>
         </div>
       </div>
       
-      <div id="mobile-menu" class="hidden md:hidden border-t border-[rgba(0,0,0,0.1)]">
+      <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--border-color)]">
         <div class="px-6 py-4 space-y-1">
-          <a href="iot.html" class="block py-3 text-base text-[var(--apple-gray-2)] hover:text-[var(--apple-emerald)] transition-colors">IoT</a>
-          <a href="ai.html" class="block py-3 text-base text-[var(--apple-gray-2)] hover:text-[var(--apple-violet)] transition-colors">AI</a>
-          <a href="cyber.html" class="block py-3 text-base text-[var(--apple-gray-2)] hover:text-[var(--apple-amber)] transition-colors">Cybersecurity</a>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-sm font-medium text-[var(--text-secondary)]">Tema</span>
+            <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Cambia tema">
+              <i data-lucide="sun" class="w-5 h-5 theme-icon-light"></i>
+              <i data-lucide="moon" class="w-5 h-5 theme-icon-dark hidden"></i>
+            </button>
+          </div>
+          <a href="iot.html" class="block py-3 text-base text-[var(--text-primary)]">IoT</a>
+          <a href="ai.html" class="block py-3 text-base text-[var(--text-primary)]">AI</a>
+          <a href="cyber.html" class="block py-3 text-base text-[var(--text-primary)]">Cybersecurity</a>
           <a href="prenota.html" class="btn-apple btn-apple-primary w-full mt-4 text-center">Iscriviti</a>
         </div>
       </div>
@@ -52,12 +71,12 @@
     <div class="w-full max-w-md">
       <div class="text-center mb-10">
         <h1 class="section-title text-3xl sm:text-4xl mb-3">Prenota il tuo posto</h1>
-        <p class="text-base text-[var(--apple-gray-3)]">Le classi sono a numero chiuso. Compila il modulo per bloccare la tua iscrizione.</p>
+        <p class="text-base text-[var(--text-secondary)]">Le classi sono a numero chiuso. Compila il modulo per bloccare la tua iscrizione.</p>
       </div>
       
       <form id="registration-form" class="space-y-5" novalidate>
         <div>
-          <label class="block text-sm font-medium text-[var(--apple-gray-2)] mb-2" for="field-name">Nome Completo</label>
+          <label class="block text-sm font-medium text-[var(--text-primary)] mb-2" for="field-name">Nome Completo</label>
           <input 
             id="field-name" 
             name="name" 
@@ -73,7 +92,7 @@
         </div>
         
         <div>
-          <label class="block text-sm font-medium text-[var(--apple-gray-2)] mb-2" for="field-email">Indirizzo Email</label>
+          <label class="block text-sm font-medium text-[var(--text-primary)] mb-2" for="field-email">Indirizzo Email</label>
           <input 
             id="field-email" 
             name="email" 
@@ -89,7 +108,7 @@
         </div>
         
         <div>
-          <label class="block text-sm font-medium text-[var(--apple-gray-2)] mb-2" for="field-track">Seleziona il Percorso</label>
+          <label class="block text-sm font-medium text-[var(--text-primary)] mb-2" for="field-track">Seleziona il Percorso</label>
           <select 
             id="field-track" 
             name="track"
@@ -115,8 +134,8 @@
         <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style="background: rgba(48, 209, 88, 0.12);" aria-hidden="true">
           <i data-lucide="check-circle" class="w-8 h-8" style="color: var(--apple-emerald);"></i>
         </div>
-        <p class="font-semibold text-xl text-[var(--apple-gray-1)]">Registrazione completata!</p>
-        <p class="text-[var(--apple-gray-3)] mt-2">Ti abbiamo inviato un'email con tutti i dettagli.</p>
+        <p class="font-semibold text-xl text-[var(--text-primary)]">Registrazione completata!</p>
+        <p class="text-[var(--text-secondary)] mt-2">Ti abbiamo inviato un'email con tutti i dettagli.</p>
         <div class="mt-8">
           <a href="index.html" class="btn-apple btn-apple-secondary inline-flex items-center">
             <i data-lucide="arrow-left" class="w-4 h-4 mr-2" aria-hidden="true"></i> Torna alla Home
@@ -127,18 +146,66 @@
   </main>
 
   <footer class="w-full py-8 text-center px-6" role="contentinfo">
-    <p class="text-sm text-[var(--apple-gray-4)]">Manifatture di Arti, Sperimentazione e Tecnologia.</p>
+    <p class="text-sm text-[var(--text-secondary)]">Manifatture di Arti, Sperimentazione e Tecnologia.</p>
   </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Torna su">
+    <i data-lucide="arrow-up" class="w-6 h-6"></i>
+  </button>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookie-banner">
+    <div class="cookie-content">
+      <p class="cookie-text">Questo sito utilizza cookie per migliorare la tua esperienza. Continuando a navigare accetti la nostra <a href="#">Privacy Policy</a>.</p>
+      <div class="cookie-buttons">
+        <button class="btn-apple btn-apple-secondary text-sm" id="cookie-decline">Rifiuta</button>
+        <button class="btn-apple btn-apple-primary text-sm" id="cookie-accept">Accetta</button>
+      </div>
+    </div>
+  </div>
 
   <script>
     lucide.createIcons();
     
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / scrollHeight) * 100;
+      document.getElementById('reading-progress').style.width = scrolled + '%';
+    });
+    
+    // Pre-select track from URL
     const params = new URLSearchParams(window.location.search);
     const trackParam = params.get('track');
     if (trackParam && ['iot', 'ai', 'cyber'].includes(trackParam)) {
       document.getElementById('field-track').value = trackParam;
     }
     
+    // Theme Toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      document.querySelectorAll('.theme-icon-light').forEach(el => el.classList.toggle('hidden', !isDark));
+      document.querySelectorAll('.theme-icon-dark').forEach(el => el.classList.toggle('hidden', isDark));
+    }
+    
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    if (savedTheme === 'dark') {
+      document.querySelectorAll('.theme-icon-light').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.theme-icon-dark').forEach(el => el.classList.remove('hidden'));
+    }
+    
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
+    
+    // Mobile Menu
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     
@@ -147,11 +214,12 @@
       mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
       mobileMenu.classList.toggle('hidden');
       mobileMenuBtn.innerHTML = isExpanded 
-        ? '<i data-lucide="menu" class="w-5 h-5 text-[var(--apple-gray-1)]"></i>'
-        : '<i data-lucide="x" class="w-5 h-5 text-[var(--apple-gray-1)]"></i>';
+        ? '<i data-lucide="menu" class="w-5 h-5 text-[var(--text-primary)]"></i>'
+        : '<i data-lucide="x" class="w-5 h-5 text-[var(--text-primary)]"></i>';
       lucide.createIcons();
     });
     
+    // Form Validation
     const form = document.getElementById('registration-form');
     const nameInput = document.getElementById('field-name');
     const emailInput = document.getElementById('field-email');
@@ -164,20 +232,14 @@
     };
     
     function showError(field, message) {
-      const errorEl = document.getElementById(`${field}-error`);
-      const inputEl = document.getElementById(`field-${field}`);
-      errorEl.textContent = message;
-      errorEl.classList.remove('hidden');
-      inputEl.style.borderColor = '#ef4444';
-      inputEl.setAttribute('aria-invalid', 'true');
+      document.getElementById(`${field}-error`).textContent = message;
+      document.getElementById(`${field}-error`).classList.remove('hidden');
+      document.getElementById(`field-${field}`).style.borderColor = '#ef4444';
     }
     
     function clearError(field) {
-      const errorEl = document.getElementById(`${field}-error`);
-      const inputEl = document.getElementById(`field-${field}`);
-      errorEl.classList.add('hidden');
-      inputEl.style.borderColor = '';
-      inputEl.setAttribute('aria-invalid', 'false');
+      document.getElementById(`${field}-error`).classList.add('hidden');
+      document.getElementById(`field-${field}`).style.borderColor = '';
     }
     
     function validateEmail(email) {
@@ -185,25 +247,15 @@
     }
     
     nameInput.addEventListener('blur', () => {
-      if (nameInput.value.trim().length < 2) {
-        showError('name', errorMessages.name);
-      } else {
-        clearError('name');
-      }
+      nameInput.value.trim().length < 2 ? showError('name', errorMessages.name) : clearError('name');
     });
     
     emailInput.addEventListener('blur', () => {
-      if (!validateEmail(emailInput.value)) {
-        showError('email', errorMessages.email);
-      } else {
-        clearError('email');
-      }
+      !validateEmail(emailInput.value) ? showError('email', errorMessages.email) : clearError('email');
     });
     
     trackSelect.addEventListener('change', () => {
-      if (trackSelect.value) {
-        clearError('track');
-      }
+      !trackSelect.value ? showError('track', errorMessages.track) : clearError('track');
     });
     
     form.addEventListener('submit', function(e) {
@@ -236,6 +288,39 @@
         document.getElementById('form-success').classList.remove('hidden');
         lucide.createIcons();
       }
+    });
+    
+    // Back to Top
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 500);
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    
+    // Toast
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${type}`;
+      const icon = type === 'success' ? 'check-circle' : type === 'error' ? 'x-circle' : 'info';
+      toast.innerHTML = `<i data-lucide="${icon}" class="w-5 h-5"></i> ${message}`;
+      container.appendChild(toast);
+      lucide.createIcons();
+      setTimeout(() => toast.remove(), 3000);
+    }
+    
+    // Cookie Banner
+    const cookieBanner = document.getElementById('cookie-banner');
+    if (!localStorage.getItem('cookieConsent')) {
+      setTimeout(() => cookieBanner.classList.add('visible'), 1000);
+    }
+    document.getElementById('cookie-accept').addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'accepted');
+      cookieBanner.classList.remove('visible');
+    });
+    document.getElementById('cookie-decline').addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'declined');
+      cookieBanner.classList.remove('visible');
     });
   </script>
 </body>

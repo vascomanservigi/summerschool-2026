@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contattaci - MAST Summer School 2026. Scrivici per informazioni, dubbi o richieste particolari.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light dark">
+  <title>Contatti - MAST Summer School 2026</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+</head>
+<body class="w-full min-h-screen flex flex-col overflow-x-hidden">
+
+  <div class="reading-progress" id="reading-progress"></div>
+
+  <header>
+    <nav class="fixed top-0 left-0 right-0 z-50 w-full" role="navigation">
+      <div class="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-14">
+        <a href="index.html" class="font-bold text-lg text-[var(--text-primary)] tracking-tight whitespace-nowrap flex items-center gap-2">
+          <span class="logo-icon">M</span>
+          <span>MAST</span>
+        </a>
+        <div class="hidden lg:flex items-center gap-8">
+          <div class="nav-dropdown">
+            <button class="nav-link flex items-center gap-1">Percorsi <i data-lucide="chevron-down" class="w-4 h-4"></i></button>
+            <div class="nav-dropdown-menu">
+              <a href="iot.html" class="nav-dropdown-item"><i data-lucide="radio" class="w-4 h-4 text-emerald-500"></i>Internet of Things</a>
+              <a href="ai.html" class="nav-dropdown-item"><i data-lucide="brain" class="w-4 h-4 text-violet-500"></i>Artificial Intelligence</a>
+              <a href="cyber.html" class="nav-dropdown-item"><i data-lucide="shield" class="w-4 h-4 text-amber-500"></i>Cyberworld</a>
+            </div>
+          </div>
+          <a href="about.html" class="nav-link">Chi Siamo</a>
+          <a href="speakers.html" class="nav-link">Docenti</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="location.html" class="nav-link">Location</a>
+          <a href="contact.html" class="nav-link font-semibold">Contatti</a>
+          <div class="flex items-center gap-3">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambia tema">
+              <i data-lucide="sun" class="w-5 h-5 theme-icon-light"></i>
+              <i data-lucide="moon" class="w-5 h-5 theme-icon-dark hidden"></i>
+            </button>
+            <a href="prenota.html" class="btn-apple btn-apple-primary text-sm py-2 px-5">Iscriviti</a>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 lg:hidden">
+          <button id="theme-toggle-mobile" class="theme-toggle"><i data-lucide="sun" class="w-5 h-5 theme-icon-light"></i><i data-lucide="moon" class="w-5 h-5 theme-icon-dark hidden"></i></button>
+          <button id="mobile-menu-btn" class="p-2 rounded-lg hover:bg-[var(--bg-secondary)]"><i data-lucide="menu" class="w-6 h-6 text-[var(--text-primary)]"></i></button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden lg:hidden border-t border-[var(--border-color)] bg-[var(--bg-primary)]">
+        <div class="max-w-[1200px] mx-auto px-6 py-6 space-y-4">
+          <a href="iot.html" class="block py-2 text-[var(--text-primary)]">IoT</a>
+          <a href="ai.html" class="block py-2 text-[var(--text-primary)]">AI</a>
+          <a href="cyber.html" class="block py-2 text-[var(--text-primary)]">Cyberworld</a>
+          <a href="about.html" class="block py-2 text-[var(--text-primary)]">Chi Siamo</a>
+          <a href="speakers.html" class="block py-2 text-[var(--text-primary)]">Docenti</a>
+          <a href="gallery.html" class="block py-2 text-[var(--text-primary)]">Gallery</a>
+          <a href="location.html" class="block py-2 text-[var(--text-primary)]">Location</a>
+          <a href="contact.html" class="block py-2 font-semibold text-[var(--text-primary)]">Contatti</a>
+          <a href="prenota.html" class="btn-apple btn-apple-primary w-full text-center">Iscriviti</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-14 w-full flex-grow">
+    <section class="w-full py-20 md:py-28 bg-[var(--bg-secondary)]">
+      <div class="max-w-[1200px] mx-auto px-6 text-center">
+        <h1 class="section-title mb-4">Contattaci</h1>
+        <p class="section-subtitle max-w-2xl mx-auto">Hai domande? Siamo qui per aiutarti. Compila il form o utilizza i nostri contatti diretti.</p>
+      </div>
+    </section>
+
+    <section class="max-w-[1200px] mx-auto px-6 py-20">
+      <div class="grid md:grid-cols-2 gap-16">
+        <div>
+          <h2 class="section-title text-3xl mb-8">Inviaci un Messaggio</h2>
+          <form id="contact-form" class="space-y-6">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-[var(--text-primary)] mb-2">Nome</label>
+                <input type="text" name="first_name" required class="w-full" placeholder="Mario">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-[var(--text-primary)] mb-2">Cognome</label>
+                <input type="text" name="last_name" required class="w-full" placeholder="Rossi">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-[var(--text-primary)] mb-2">Email</label>
+              <input type="email" name="email" required class="w-full" placeholder="mario.rossi@email.com">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-[var(--text-primary)] mb-2">Oggetto</label>
+              <select name="subject" required class="w-full">
+                <option value="">Seleziona un argomento...</option>
+                <option value="info">Informazioni generali</option>
+                <option value="registration">Iscrizione</option>
+                <option value="partnership">Partnership</option>
+                <option value="press">Stampa/Media</option>
+                <option value="other">Altro</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-[var(--text-primary)] mb-2">Messaggio</label>
+              <textarea name="message" rows="5" required class="w-full" placeholder="Scrivi qui il tuo messaggio..."></textarea>
+            </div>
+            <div class="flex items-center gap-3">
+              <input type="checkbox" id="privacy" required class="w-5 h-5 rounded">
+              <label for="privacy" class="text-sm text-[var(--text-secondary)]">Accetto la <a href="#" class="text-[var(--apple-blue)] underline">Privacy Policy</a></label>
+            </div>
+            <button type="submit" class="btn-apple btn-apple-primary w-full sm:w-auto">Invia Messaggio</button>
+          </form>
+          <div id="contact-success" class="hidden text-center py-8">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style="background: rgba(48, 209, 88, 0.12);">
+              <i data-lucide="check-circle" class="w-8 h-8" style="color: var(--apple-emerald);"></i>
+            </div>
+            <p class="font-semibold text-xl text-[var(--text-primary)]">Messaggio inviato!</p>
+            <p class="text-[var(--text-secondary)] mt-2">Ti risponderemo entro 24 ore lavorative.</p>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="section-title text-3xl mb-8">Informazioni di Contatto</h2>
+          <div class="space-y-6">
+            <div class="apple-card">
+              <div class="flex items-start gap-4">
+                <div class="benefit-icon flex-shrink-0"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
+                <div>
+                  <h3 class="font-bold mb-1">Indirizzo</h3>
+                  <p class="text-[var(--text-secondary)]">Via Federico Ozanam, 18<br>40125 Bologna (BO), Italia</p>
+                </div>
+              </div>
+            </div>
+            <div class="apple-card">
+              <div class="flex items-start gap-4">
+                <div class="benefit-icon flex-shrink-0"><i data-lucide="mail" class="w-6 h-6"></i></div>
+                <div>
+                  <h3 class="font-bold mb-1">Email</h3>
+                  <p class="text-[var(--text-secondary)]">summerschool@mast.org<br>Rispondiamo entro 24h</p>
+                </div>
+              </div>
+            </div>
+            <div class="apple-card">
+              <div class="flex items-start gap-4">
+                <div class="benefit-icon flex-shrink-0"><i data-lucide="phone" class="w-6 h-6"></i></div>
+                <div>
+                  <h3 class="font-bold mb-1">Telefono</h3>
+                  <p class="text-[var(--text-secondary)]">+39 051 645 0111<br>Lun-Ven 9:00-18:00</p>
+                </div>
+              </div>
+            </div>
+            <div class="apple-card">
+              <div class="flex items-start gap-4">
+                <div class="benefit-icon flex-shrink-0"><i data-lucide="clock" class="w-6 h-6"></i></div>
+                <div>
+                  <h3 class="font-bold mb-1">Orari Segreteria</h3>
+                  <p class="text-[var(--text-secondary)]">Lunedì - Venerdì: 9:00 - 18:00<br>Sabato: 10:00 - 13:00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <h3 class="font-bold mb-4">Seguici sui Social</h3>
+            <div class="flex gap-3">
+              <a href="#" class="share-btn twitter"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+              <a href="#" class="share-btn linkedin"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+              <a href="#" class="share-btn facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+              <a href="#" class="share-btn"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+              <a href="#" class="share-btn"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2847.8333744417265!2d11.351896076884!3d44.50746497176292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477fd3d0c5a17dbd%3A0x9e93a4f7b7a7f7a7!2sVia%20Federico%20Ozanam%2C%2018%2C%2040125%20Bologna%20BO!5e0!3m2!1sit!2sit!4v1699999999999!5m2!1sit!2sit"
+        width="100%" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </section>
+  </main>
+
+  <footer class="w-full py-12 text-center px-6 bg-[var(--bg-secondary)]">
+    <p class="text-sm text-[var(--text-secondary)] mb-2">Manifatture di Arti, Sperimentazione e Tecnologia.</p>
+    <p class="text-xs text-[var(--text-secondary)]">Via Federico Ozanam 18, Bologna</p>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top"><i data-lucide="arrow-up" class="w-6 h-6"></i></button>
+  <div class="toast-container" id="toast-container"></div>
+
+  <script>
+    lucide.createIcons();
+    
+    window.addEventListener('scroll', () => {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      document.getElementById('reading-progress').style.width = (window.scrollY / scrollHeight) * 100 + '%';
+      document.getElementById('back-to-top').classList.toggle('visible', window.scrollY > 500);
+    });
+    
+    document.getElementById('back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      document.querySelectorAll('.theme-icon-light').forEach(el => el.classList.toggle('hidden', !isDark));
+      document.querySelectorAll('.theme-icon-dark').forEach(el => el.classList.toggle('hidden', isDark));
+    }
+    
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    if (savedTheme === 'dark') {
+      document.querySelectorAll('.theme-icon-light').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.theme-icon-dark').forEach(el => el.classList.remove('hidden'));
+    }
+    
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
+    
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+      this.innerHTML = menu.classList.contains('hidden') 
+        ? '<i data-lucide="menu" class="w-6 h-6 text-[var(--text-primary)]"></i>'
+        : '<i data-lucide="x" class="w-6 h-6 text-[var(--text-primary)]"></i>';
+      lucide.createIcons();
+    });
+    
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.classList.add('hidden');
+      document.getElementById('contact-success').classList.remove('hidden');
+      lucide.createIcons();
+    });
+    
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${type}`;
+      const icon = type === 'success' ? 'check-circle' : type === 'error' ? 'x-circle' : 'info';
+      toast.innerHTML = `<i data-lucide="${icon}" class="w-5 h-5"></i> ${message}`;
+      container.appendChild(toast);
+      lucide.createIcons();
+      setTimeout(() => toast.remove(), 3000);
+    }
+  </script>
+</body>
+</html>

@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MAST Summer School 2026 - Formazione tecnologica pratica in IoT, Intelligenza Artificiale e Cybersecurity. Iscriviti ora!">
-  <meta name="keywords" content="summer school, IoT, intelligenza artificiale, cybersecurity, formazione, tecnologia">
+  <meta name="description" content="MAST Summer School 2026 - Manifatture di Arti, Sperimentazione e Tecnologia. Formazione in IoT, AI e Cybersecurity.">
+  <meta name="keywords" content="summer school, IoT, intelligenza artificiale, cybersecurity, formazione, tecnologia, MAST">
   <meta name="author" content="MAST">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light dark">
   
   <meta property="og:title" content="MAST Summer School 2026">
   <meta property="og:description" content="Manifatture di Arti, Sperimentazione e Tecnologia.">
@@ -25,28 +27,50 @@
 </head>
 <body class="w-full min-h-screen flex flex-col overflow-x-hidden">
 
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress" id="reading-progress"></div>
+
   <header>
     <nav class="fixed top-0 left-0 right-0 z-50 w-full" role="navigation" aria-label="Menu principale">
       <div class="max-w-[1024px] mx-auto px-6 flex items-center justify-between h-12">
-        <a href="index.html" class="font-semibold text-base text-[var(--apple-gray-1)] tracking-tight whitespace-nowrap" aria-label="MAST Summer School - Home">MAST</a>
+        <a href="index.html" class="font-semibold text-base text-[var(--text-primary)] tracking-tight whitespace-nowrap" aria-label="MAST Summer School - Home">MAST</a>
         
-        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-[var(--apple-gray-6)] transition-colors" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
-          <i data-lucide="menu" class="w-5 h-5 text-[var(--apple-gray-1)]"></i>
-        </button>
-        
-        <div class="hidden md:flex items-center gap-8">
-          <a href="iot.html" class="text-xs font-medium text-[var(--apple-gray-3)] hover:text-[var(--apple-emerald)] transition-colors">IoT</a> 
-          <a href="ai.html" class="text-xs font-medium text-[var(--apple-gray-3)] hover:text-[var(--apple-violet)] transition-colors">AI</a> 
-          <a href="cyber.html" class="text-xs font-medium text-[var(--apple-gray-3)] hover:text-[var(--apple-amber)] transition-colors">Cybersecurity</a>
-          <a href="prenota.html" class="btn-apple btn-apple-primary text-xs py-2 px-4">Iscriviti</a>
+        <div class="flex items-center gap-4">
+          <button id="theme-toggle" class="theme-toggle hidden md:flex" aria-label="Cambia tema">
+            <i data-lucide="sun" class="w-5 h-5 theme-icon-light"></i>
+            <i data-lucide="moon" class="w-5 h-5 theme-icon-dark hidden"></i>
+          </button>
+          
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-[var(--bg-secondary)] transition-colors" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
+            <i data-lucide="menu" class="w-5 h-5 text-[var(--text-primary)]"></i>
+          </button>
+          
+          <div class="hidden md:flex items-center gap-8">
+            <a href="#percorsi" class="text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--apple-emerald)] transition-colors">Percorsi</a>
+            <a href="#testimonials" class="text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--apple-violet)] transition-colors">Testimonianze</a>
+            <a href="#faq" class="text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--apple-amber)] transition-colors">FAQ</a>
+            <a href="prenota.html" class="btn-apple btn-apple-primary text-xs py-2 px-4">Iscriviti</a>
+          </div>
         </div>
       </div>
       
-      <div id="mobile-menu" class="hidden md:hidden border-t border-[rgba(0,0,0,0.1)]">
+      <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--border-color)]">
         <div class="px-6 py-4 space-y-1">
-          <a href="iot.html" class="block py-3 text-base text-[var(--apple-gray-2)] hover:text-[var(--apple-emerald)] transition-colors">IoT</a>
-          <a href="ai.html" class="block py-3 text-base text-[var(--apple-gray-2)] hover:text-[var(--apple-violet)] transition-colors">AI</a>
-          <a href="cyber.html" class="block py-3 text-base text-[var(--apple-gray-2)] hover:text-[var(--apple-amber)] transition-colors">Cybersecurity</a>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-sm font-medium text-[var(--text-secondary)]">Tema</span>
+            <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Cambia tema">
+              <i data-lucide="sun" class="w-5 h-5 theme-icon-light"></i>
+              <i data-lucide="moon" class="w-5 h-5 theme-icon-dark hidden"></i>
+            </button>
+          </div>
+          <a href="#percorsi" class="block py-3 text-base text-[var(--text-primary)]">Percorsi</a>
+          <a href="#testimonials" class="block py-3 text-base text-[var(--text-primary)]">Testimonianze</a>
+          <a href="#faq" class="block py-3 text-base text-[var(--text-primary)]">FAQ</a>
           <a href="prenota.html" class="btn-apple btn-apple-primary w-full mt-4 text-center">Iscriviti</a>
         </div>
       </div>
@@ -54,16 +78,38 @@
   </header>
 
   <main class="pt-12 w-full flex-grow">
+    <!-- Hero Section -->
     <section class="hero-section flex flex-col items-center justify-center text-center px-6 min-h-[85vh] w-full" aria-labelledby="hero-title">
       <div class="relative z-10 w-full max-w-4xl mx-auto py-20">
-        <p class="text-sm uppercase tracking-wider mb-4 text-[var(--apple-gray-4)] font-medium fade-up fade-up-1">Estate 2026</p>
-        <h1 id="hero-title" class="font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight fade-up fade-up-2" style="color: var(--apple-gray-1);">
+        <p class="text-sm uppercase tracking-wider mb-4 text-[var(--text-secondary)] font-medium fade-up fade-up-1">Estate 2026</p>
+        <h1 id="hero-title" class="font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight fade-up fade-up-2">
           MAST Summer School
         </h1>
-        <p class="mt-6 text-lg sm:text-xl md:text-2xl text-[var(--apple-gray-3)] max-w-2xl mx-auto leading-relaxed fade-up fade-up-3" style="letter-spacing: -0.022em;">
-Manifatture di Arti, Sperimentazione e Tecnologia.
+        <p class="mt-6 text-lg sm:text-xl md:text-2xl text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed fade-up fade-up-3">
+          Manifatture di Arti, Sperimentazione e Tecnologia.
         </p>
-        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center fade-up fade-up-3">
+        
+        <!-- Countdown Timer -->
+        <div class="countdown-container fade-up fade-up-3" id="countdown">
+          <div class="countdown-item">
+            <div class="countdown-value" id="days">00</div>
+            <div class="countdown-label">Giorni</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-value" id="hours">00</div>
+            <div class="countdown-label">Ore</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-value" id="minutes">00</div>
+            <div class="countdown-label">Minuti</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-value" id="seconds">00</div>
+            <div class="countdown-label">Secondi</div>
+          </div>
+        </div>
+        
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center fade-up fade-up-4">
           <a href="prenota.html" class="btn-apple btn-apple-primary">
             Iscriviti Ora
           </a>
@@ -71,9 +117,49 @@ Manifatture di Arti, Sperimentazione e Tecnologia.
             Scopri i percorsi
           </a>
         </div>
+        
+        <!-- Share Buttons -->
+        <div class="mt-12 fade-up fade-up-4">
+          <p class="text-xs text-[var(--text-secondary)] mb-3">Condividi</p>
+          <div class="share-buttons">
+            <button class="share-btn twitter" aria-label="Condividi su Twitter" onclick="shareOnTwitter()">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </button>
+            <button class="share-btn linkedin" aria-label="Condividi su LinkedIn" onclick="shareOnLinkedIn()">
+              <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </button>
+            <button class="share-btn facebook" aria-label="Condividi su Facebook" onclick="shareOnFacebook()">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- Stats Section -->
+    <section class="w-full py-20 md:py-32 bg-[var(--bg-secondary)]">
+      <div class="max-w-[1024px] mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="section-title mb-4">I Numeri di MAST</h2>
+        </div>
+        <div class="stats-container">
+          <div class="stat-item">
+            <div class="stat-number" data-count="8">0</div>
+            <div class="stat-label">Giorni intensivi</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="3">0</div>
+            <div class="stat-label">Percorsi specialistici</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="50">0</div>
+            <div class="stat-label">Posti disponibili</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Percorsi Section -->
     <section id="percorsi" class="max-w-[1024px] mx-auto px-6 py-20 md:py-32 w-full" aria-labelledby="tracks-title">
       <div class="w-full text-center mb-16">
         <h2 id="tracks-title" class="section-title mb-4">I Nostri Percorsi</h2>
@@ -121,37 +207,243 @@ Manifatture di Arti, Sperimentazione e Tecnologia.
         </article>
       </div>
     </section>
-    
-    <section class="w-full py-20 md:py-32 bg-[var(--apple-gray-6)]">
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="w-full py-20 md:py-32 bg-[var(--bg-secondary)]">
       <div class="max-w-[1024px] mx-auto px-6">
-        <div class="text-center mb-12">
-          <h2 class="section-title mb-4">Perché Scegliere MAST</h2>
+        <div class="text-center mb-16">
+          <h2 class="section-title mb-4">Cosa Dicono i Partecipanti</h2>
+          <p class="section-subtitle">Le esperienze di chi ha vissuto la MAST Summer School.</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div>
-            <div class="text-5xl font-semibold mb-2" style="color: var(--apple-blue);">8</div>
-            <div class="text-base text-[var(--apple-gray-3)]">Giorni intensivi</div>
+        
+        <div class="testimonials-carousel">
+          <div class="testimonials-track" id="testimonials-track">
+            <div class="testimonial-card">
+              <p class="testimonial-text">"Un'esperienza unica che mi ha permesso di acquisire competenze pratiche che ho subito potuto applicare nel mio lavoro. I docenti sono eccezionali."</p>
+              <div class="testimonial-author">Marco R.</div>
+              <div class="testimonial-role">AI Track - Edizione 2025</div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-text">"La MAST Summer School ha cambiato il mio modo di vedere la tecnologia. Ora ho le basi per sviluppare i miei progetti IoT in autonomia."</p>
+              <div class="testimonial-author">Giulia T.</div>
+              <div class="testimonial-role">IoT Track - Edizione 2025</div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-text">"Il percorso di Cybersecurity è intensivo e stimolante. Ho imparato più in una settimana che in un semestre universitario."</p>
+              <div class="testimonial-author">Alessandro B.</div>
+              <div class="testimonial-role">Cyber Track - Edizione 2025</div>
+            </div>
           </div>
-          <div>
-            <div class="text-5xl font-semibold mb-2" style="color: var(--apple-blue);">3</div>
-            <div class="text-base text-[var(--apple-gray-3)]">Percorsi specialistici</div>
+          <div class="carousel-dots">
+            <button class="carousel-dot active" aria-label="Testimonianza 1"></button>
+            <button class="carousel-dot" aria-label="Testimonianza 2"></button>
+            <button class="carousel-dot" aria-label="Testimonianza 3"></button>
           </div>
-          <div>
-            <div class="text-5xl font-semibold mb-2" style="color: var(--apple-blue);">1</div>
-            <div class="text-base text-[var(--apple-gray-3)]">Project Work finale</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="max-w-[1024px] mx-auto px-6 py-20 md:py-32 w-full" aria-labelledby="faq-title">
+      <div class="w-full text-center mb-16">
+        <h2 id="faq-title" class="section-title mb-4">Domande Frequenti</h2>
+        <p class="section-subtitle">Tutto quello che devi sapere sulla MAST Summer School.</p>
+      </div>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Chi può partecipare alla MAST Summer School?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>La Summer School è aperta a studenti universitari, laureati e professionisti che desiderano approfondire le competenze tecnologiche. Non sono richiesti prerequisiti specifici, solo la voglia di imparare.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Quanto costa l'iscrizione?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>La partecipazione è gratuita. Tutti i costi di docenza, materiali e attività sono coperti da MAST e dai partner. Sono a carico del partecipante solo le spese di viaggio e soggiorno.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Dove si svolge la Summer School?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>La Summer School si svolge presso la sede di MAST a Bologna, in Via Federico Ozanam 18. Le attività prevedono anche visite presso aziende partner e luoghi di interesse culturale in città.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>È previsto un alloggio?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>MAST non fornisce direttamente l'alloggio, ma può suggerire sistemazioni convenzionate vicino alla sede. I partecipanti riceveranno una lista di hotel e ostelli partner con tariffe agevolate.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Cosa ricevo al termine della Summer School?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Ogni partecipante riceve un attestato di partecipazione e, completando il Project Work, un certificato di competenze riconosciuto dalle aziende partner del network MAST.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Come posso candidarmi?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Compila il modulo di iscrizione su questo sito selezionando il percorso di tuo interesse. Riceverai una conferma via email con le istruzioni per completare la registrazione.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="max-w-[1024px] mx-auto px-6 pb-20">
+      <div class="newsletter-section">
+        <h2 class="section-title text-2xl mb-4">Resta Aggiornato</h2>
+        <p class="text-[var(--text-secondary)] max-w-md mx-auto">Iscriviti alla newsletter per ricevere aggiornamenti su novità, scadenze e contenuti esclusivi.</p>
+        <form class="newsletter-form" id="newsletter-form">
+          <input type="email" placeholder="La tua email" required aria-label="Indirizzo email per newsletter">
+          <button type="submit" class="btn-apple btn-apple-primary">Iscriviti</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="w-full py-20 md:py-32 bg-[var(--bg-secondary)]">
+      <div class="max-w-[1024px] mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="section-title text-2xl mb-2">I Nostri Partner</h2>
+          <p class="text-[var(--text-secondary)]">In collaborazione con aziende leader del settore tecnologico.</p>
+        </div>
+        <div class="partners-grid">
+          <div class="partner-logo flex items-center justify-center h-12">
+            <span class="text-xl font-bold text-[var(--text-primary)]">Vertiv</span>
+          </div>
+          <div class="partner-logo flex items-center justify-center h-12">
+            <span class="text-xl font-bold text-[var(--text-primary)]">Herabit</span>
+          </div>
+          <div class="partner-logo flex items-center justify-center h-12">
+            <span class="text-xl font-bold text-[var(--text-primary)]">Almacube</span>
+          </div>
+          <div class="partner-logo flex items-center justify-center h-12">
+            <span class="text-xl font-bold text-[var(--text-primary)]">UNIMORE</span>
+          </div>
+          <div class="partner-logo flex items-center justify-center h-12">
+            <span class="text-xl font-bold text-[var(--text-primary)]">BBS</span>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="w-full py-8 text-center px-6" role="contentinfo">
-    <p class="text-sm text-[var(--apple-gray-4)]">Manifatture di Arti, Sperimentazione e Tecnologia.</p>
+  <footer class="w-full py-12 text-center px-6" role="contentinfo">
+    <p class="text-sm text-[var(--text-secondary)] mb-2">Manifatture di Arti, Sperimentazione e Tecnologia.</p>
+    <p class="text-xs text-[var(--text-secondary)]">Via Federico Ozanam 18, Bologna</p>
   </footer>
 
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Torna su">
+    <i data-lucide="arrow-up" class="w-6 h-6"></i>
+  </button>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookie-banner">
+    <div class="cookie-content">
+      <p class="cookie-text">Questo sito utilizza cookie per migliorare la tua esperienza. Continuando a navigare accetti la nostra <a href="#">Privacy Policy</a>.</p>
+      <div class="cookie-buttons">
+        <button class="btn-apple btn-apple-secondary text-sm" id="cookie-decline">Rifiuta</button>
+        <button class="btn-apple btn-apple-primary text-sm" id="cookie-accept">Accetta</button>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // Initialize Lucide icons
     lucide.createIcons();
     
+    // Loading Screen
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loading-screen').classList.add('hidden');
+      }, 500);
+    });
+    
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / scrollHeight) * 100;
+      document.getElementById('reading-progress').style.width = scrolled + '%';
+    });
+    
+    // Countdown Timer
+    function updateCountdown() {
+      const eventDate = new Date('2026-07-03T16:00:00+02:00').getTime();
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+      
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+      }
+    }
+    
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+    
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      
+      document.querySelectorAll('.theme-icon-light').forEach(el => el.classList.toggle('hidden', !isDark));
+      document.querySelectorAll('.theme-icon-dark').forEach(el => el.classList.toggle('hidden', isDark));
+    }
+    
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    if (savedTheme === 'dark') {
+      document.querySelectorAll('.theme-icon-light').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.theme-icon-dark').forEach(el => el.classList.remove('hidden'));
+    }
+    
+    themeToggle.addEventListener('click', toggleTheme);
+    themeToggleMobile.addEventListener('click', toggleTheme);
+    
+    // Mobile Menu
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     
@@ -160,19 +452,171 @@ Manifatture di Arti, Sperimentazione e Tecnologia.
       mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
       mobileMenu.classList.toggle('hidden');
       mobileMenuBtn.innerHTML = isExpanded 
-        ? '<i data-lucide="menu" class="w-5 h-5 text-[var(--apple-gray-1)]"></i>'
-        : '<i data-lucide="x" class="w-5 h-5 text-[var(--apple-gray-1)]"></i>';
+        ? '<i data-lucide="menu" class="w-5 h-5 text-[var(--text-primary)]"></i>'
+        : '<i data-lucide="x" class="w-5 h-5 text-[var(--text-primary)]"></i>';
       lucide.createIcons();
     });
     
-    mobileMenu.querySelectorAll('a').forEach(link => {
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
         mobileMenuBtn.setAttribute('aria-expanded', 'false');
-        mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-5 h-5 text-[var(--apple-gray-1)]"></i>';
+        mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-5 h-5 text-[var(--text-primary)]"></i>';
         lucide.createIcons();
       });
     });
+    
+    // Stats Counter Animation
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stat-number');
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-count'));
+        const duration = 2000;
+        const start = 0;
+        const startTime = performance.now();
+        
+        function updateCounter(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const easeOut = 1 - Math.pow(1 - progress, 3);
+          counter.textContent = Math.floor(start + (target - start) * easeOut);
+          
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          }
+        }
+        
+        requestAnimationFrame(updateCounter);
+      });
+    }
+    
+    // Intersection Observer for stats animation
+    const statsSection = document.querySelector('.stats-container');
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    statsObserver.observe(statsSection);
+    
+    // Testimonials Carousel
+    const track = document.getElementById('testimonials-track');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let currentSlide = 0;
+    const totalSlides = 3;
+    
+    function goToSlide(index) {
+      currentSlide = index;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+    
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => goToSlide(index));
+    });
+    
+    // Auto-advance carousel
+    setInterval(() => {
+      goToSlide((currentSlide + 1) % totalSlides);
+    }, 5000);
+    
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(i => i.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
+        question.setAttribute('aria-expanded', !isActive);
+        lucide.createIcons();
+      });
+    });
+    
+    // Newsletter Form
+    document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      showToast('Grazie per l\'iscrizione!', 'success');
+      this.reset();
+    });
+    
+    // Back to Top Button
+    const backToTop = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Toast Notifications
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${type}`;
+      
+      const icon = type === 'success' ? 'check-circle' : type === 'error' ? 'x-circle' : 'info';
+      toast.innerHTML = `<i data-lucide="${icon}" class="w-5 h-5"></i> ${message}`;
+      
+      container.appendChild(toast);
+      lucide.createIcons();
+      
+      setTimeout(() => {
+        toast.remove();
+      }, 3000);
+    }
+    
+    // Cookie Banner
+    const cookieBanner = document.getElementById('cookie-banner');
+    
+    if (!localStorage.getItem('cookieConsent')) {
+      setTimeout(() => {
+        cookieBanner.classList.add('visible');
+      }, 1000);
+    }
+    
+    document.getElementById('cookie-accept').addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'accepted');
+      cookieBanner.classList.remove('visible');
+      showToast('Preferenze cookie salvate', 'success');
+    });
+    
+    document.getElementById('cookie-decline').addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'declined');
+      cookieBanner.classList.remove('visible');
+    });
+    
+    // Share Functions
+    function shareOnTwitter() {
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent('Partecipa alla MAST Summer School 2026!');
+      window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+    }
+    
+    function shareOnLinkedIn() {
+      const url = encodeURIComponent(window.location.href);
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+    }
+    
+    function shareOnFacebook() {
+      const url = encodeURIComponent(window.location.href);
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+    }
   </script>
 </body>
 </html>
