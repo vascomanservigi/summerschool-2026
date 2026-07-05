@@ -14,175 +14,168 @@
   <title>Cyberworld - MAST Summer School 2026</title>
   
   <link rel="canonical" href="cyber.html">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script>
-    tailwind.config = { theme: { extend: { backgroundImage: { 'accent-cyber': "linear-gradient(135deg, #ffedd5, #fef9c3)" } } } }
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
 </head>
-<body class="w-full min-h-screen bg-slate-50 text-slate-900 flex flex-col justify-between overflow-x-hidden antialiased">
+<body class="w-full min-h-screen flex flex-col overflow-x-hidden">
 
   <header>
-    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/90 border-b border-gray-200 w-full" role="navigation" aria-label="Menu principale">
-      <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        <a href="index.html" class="font-bold text-base sm:text-lg md:text-xl text-slate-900 whitespace-nowrap" aria-label="MAST Summer School - Home">MAST Summer School</a>
+    <nav class="fixed top-0 left-0 right-0 z-50 w-full" role="navigation" aria-label="Menu principale">
+      <div class="max-w-[1024px] mx-auto px-6 flex items-center justify-between h-12">
+        <a href="index.html" class="font-semibold text-base text-[var(--apple-gray-1)] tracking-tight whitespace-nowrap" aria-label="MAST Summer School - Home">MAST</a>
         
-        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
-          <i data-lucide="menu" class="w-6 h-6 text-slate-700"></i>
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-[var(--apple-gray-6)] transition-colors" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
+          <i data-lucide="menu" class="w-5 h-5 text-[var(--apple-gray-1)]"></i>
         </button>
         
-        <div class="hidden md:flex items-center gap-3 sm:gap-4 lg:gap-6">
-          <a href="iot.html" class="text-xs sm:text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded">IoT</a> 
-          <a href="ai.html" class="text-xs sm:text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 rounded">AI</a> 
-          <a href="cyber.html" class="text-xs sm:text-sm font-bold text-amber-600 border-b-2 border-amber-600 pb-1" aria-current="page">Cybersecurity</a>
-          <a href="prenota.html?track=cyber" class="text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Prenota</a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="iot.html" class="text-xs font-medium text-[var(--apple-gray-3)] hover:text-[var(--apple-emerald)] transition-colors">IoT</a> 
+          <a href="ai.html" class="text-xs font-medium text-[var(--apple-gray-3)] hover:text-[var(--apple-violet)] transition-colors">AI</a> 
+          <a href="cyber.html" class="text-xs font-semibold text-[var(--apple-amber)]" aria-current="page">Cybersecurity</a>
+          <a href="prenota.html?track=cyber" class="btn-apple btn-apple-primary text-xs py-2 px-4">Iscriviti</a>
         </div>
       </div>
       
-      <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-xl">
-        <div class="px-4 py-4 space-y-2">
-          <a href="iot.html" class="block py-2 px-3 rounded-lg text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">IoT</a>
-          <a href="ai.html" class="block py-2 px-3 rounded-lg text-gray-600 hover:bg-violet-50 hover:text-violet-600 transition-colors">AI</a>
-          <a href="cyber.html" class="block py-2 px-3 rounded-lg bg-amber-50 text-amber-600 font-semibold" aria-current="page">Cybersecurity</a>
-          <a href="prenota.html?track=cyber" class="block py-2 px-3 rounded-lg bg-indigo-600 text-white font-semibold text-center mt-2">Prenota</a>
+      <div id="mobile-menu" class="hidden md:hidden border-t border-[rgba(0,0,0,0.1)]">
+        <div class="px-6 py-4 space-y-1">
+          <a href="iot.html" class="block py-3 text-base text-[var(--apple-gray-2)] hover:text-[var(--apple-emerald)] transition-colors">IoT</a>
+          <a href="ai.html" class="block py-3 text-base text-[var(--apple-gray-2)] hover:text-[var(--apple-violet)] transition-colors">AI</a>
+          <a href="cyber.html" class="block py-3 text-base font-semibold text-[var(--apple-amber)]" aria-current="page">Cybersecurity</a>
+          <a href="prenota.html?track=cyber" class="btn-apple btn-apple-primary w-full mt-4 text-center">Iscriviti</a>
         </div>
       </div>
     </nav>
   </header>
 
-  <main class="pt-16 w-full flex-grow flex flex-col items-center">
-    <section class="w-full bg-accent-cyber px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center border-b border-amber-100 flex flex-col items-center" aria-labelledby="page-title">
-      <div class="w-16 h-16 md:w-20 md:h-20 bg-white text-amber-600 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-sm" aria-hidden="true">
-        <i data-lucide="shield" class="w-8 h-8 md:w-10 md:h-10"></i>
-      </div>
-      <h1 id="page-title" class="font-bold text-2xl sm:text-4xl md:text-5xl text-amber-800">Cyberworld</h1>
-      <p class="mt-3 max-w-2xl text-amber-950 text-xs sm:text-base md:text-lg px-2">Individua le falle, previeni le intrusioni e proteggi il patrimonio dei dati aziendali.</p>
-    </section>
-
-    <section class="w-full bg-white border-b border-slate-200 py-12 px-4 sm:px-6 lg:px-8 flex justify-center" aria-labelledby="topics-title">
-      <div class="w-full max-w-4xl">
-        <h2 id="topics-title" class="text-xl sm:text-2xl font-bold mb-4">I Core Topics del Programma</h2>
-        <div class="flex flex-wrap gap-2 mb-6">
-          <span class="inline-block px-3 py-1.5 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full">Ethical Hacking</span> 
-          <span class="inline-block px-3 py-1.5 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full">Penetration Testing</span> 
-          <span class="inline-block px-3 py-1.5 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full">Cryptography</span> 
-          <span class="inline-block px-3 py-1.5 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full">Linux Hardening</span>
+  <main class="pt-12 w-full flex-grow">
+    <section class="w-full py-20 md:py-28 bg-[var(--apple-gray-6)]" aria-labelledby="page-title">
+      <div class="max-w-[1024px] mx-auto px-6 text-center">
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6" style="background: rgba(255, 159, 10, 0.12);" aria-hidden="true">
+          <i data-lucide="shield" class="w-10 h-10" style="color: var(--apple-amber);"></i>
         </div>
-        <p class="leading-relaxed text-slate-600 text-xs sm:text-sm md:text-base">Il modulo sulla sicurezza ti insegnerà l'approccio difensivo e offensivo necessario per comprendere gli attacchi moderni e irrobustire le infrastrutture.</p>
+        <h1 id="page-title" class="section-title mb-4">Cyberworld</h1>
+        <p class="section-subtitle max-w-2xl mx-auto">Individua le falle, previeni le intrusioni e proteggi il patrimonio dei dati aziendali.</p>
       </div>
     </section>
 
-    <section class="w-full bg-white border-b border-slate-200 py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center" aria-labelledby="schedule-title">
-      <div class="w-full max-w-4xl mb-6">
-        <h2 id="schedule-title" class="text-xl sm:text-2xl font-bold text-slate-900">Programma Settimanale Ufficiale</h2>
+    <section class="max-w-[1024px] mx-auto px-6 py-16" aria-labelledby="topics-title">
+      <h2 id="topics-title" class="section-title text-2xl mb-6">Core Topics</h2>
+      <div class="flex flex-wrap gap-3 mb-8">
+        <span class="apple-tag" style="background: rgba(255, 159, 10, 0.12); color: var(--apple-amber);">Ethical Hacking</span> 
+        <span class="apple-tag" style="background: rgba(255, 159, 10, 0.12); color: var(--apple-amber);">Penetration Testing</span> 
+        <span class="apple-tag" style="background: rgba(255, 159, 10, 0.12); color: var(--apple-amber);">Cryptography</span> 
+        <span class="apple-tag" style="background: rgba(255, 159, 10, 0.12); color: var(--apple-amber);">Linux Hardening</span>
       </div>
-      <div class="w-full max-w-4xl overflow-x-auto border border-slate-200 rounded-2xl shadow-sm schedule-table">
-        <table class="min-w-full divide-y divide-slate-100 text-left">
+      <p class="text-lg text-[var(--apple-gray-3)] leading-relaxed max-w-3xl">Il modulo sulla sicurezza ti insegnerà l'approccio difensivo e offensivo necessario per comprendere gli attacchi moderni e irrobustire le infrastrutture.</p>
+    </section>
+
+    <section class="max-w-[1024px] mx-auto px-6 pb-20" aria-labelledby="schedule-title">
+      <h2 id="schedule-title" class="section-title text-2xl mb-6">Programma Settimanale</h2>
+      <div class="schedule-table">
+        <table>
           <thead>
-            <tr class="bg-slate-50">
-              <th class="py-3.5 px-5 font-bold text-slate-700 text-xs sm:text-sm w-1/4">Giorno / Orario</th>
-              <th class="py-3.5 px-5 font-bold text-slate-700 text-xs sm:text-sm w-3/4">Attività Cyberworld & Sessioni Comuni</th>
+            <tr>
+              <th>Giorno</th>
+              <th>Attività</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100 text-xs sm:text-sm text-slate-600 bg-white">
+          <tbody>
             <tr>
-              <td class="py-4 px-5 font-semibold text-amber-600 whitespace-nowrap">Venerdì 3 Luglio</td>
-              <td class="py-4 px-5 min-w-[240px]">
-                <strong class="text-slate-900 block mb-1">16:00 - 22:00 (Comune)</strong>
-                Welcome & MAST Overview; Presentazione Scuole con i Coordinatori.<br>
-                Kick-off, Ice-breaking + Unboxing Petoi.<br>
-                <span class="text-xs text-slate-400 block mt-1">Cena presso «Trattoria Paradisino» & Social Gathering</span>
+              <td class="font-medium whitespace-nowrap" style="color: var(--apple-amber);">Venerdì 3 Luglio</td>
+              <td>
+                <strong class="block mb-1">16:00 - 22:00 (Comune)</strong>
+                Welcome & MAST Overview; Presentazione Scuole con i Coordinatori. Kick-off, Ice-breaking + Unboxing Petoi.
+                <div class="text-sm text-[var(--apple-gray-4)] mt-2">Cena presso «Trattoria Paradisino» & Social Gathering</div>
               </td>
             </tr>
             <tr>
-              <td class="py-4 px-5 font-semibold text-amber-600 whitespace-nowrap">Sabato 4 Luglio</td>
-              <td class="py-4 px-5">
-                <strong class="text-slate-900 block mb-1">09:00 - 13:00 (Verticale Cyberworld)</strong>
-                Analisi degli scenari digitali futuri e trends della sicurezza informatica.<br>
-                <strong class="text-slate-900 block mt-2 mb-1">14:00 - 22:00 (Comune)</strong>
-                Internet 101 + Laboratorio di Team Building.<br>
-                <span class="text-xs text-slate-400 block mt-1">Smartphone Free Lunch | Cena presso «Berberè» & Pool Party presso The Social Hub</span>
+              <td class="font-medium whitespace-nowrap" style="color: var(--apple-amber);">Sabato 4 Luglio</td>
+              <td>
+                <strong class="block mb-1">09:00 - 13:00 (Verticale Cyberworld)</strong>
+                Analisi degli scenari digitali futuri e trends della sicurezza informatica.
+                <strong class="block mt-3 mb-1">14:00 - 22:00 (Comune)</strong>
+                Internet 101 + Laboratorio di Team Building.
+                <div class="text-sm text-[var(--apple-gray-4)] mt-2">Smartphone Free Lunch | Cena presso «Berberè» & Pool Party</div>
               </td>
             </tr>
             <tr>
-              <td class="py-4 px-5 font-semibold text-amber-600 whitespace-nowrap">Domenica 5 Luglio</td>
-              <td class="py-4 px-5">
-                <strong class="text-slate-900 block mb-1">09:00 - 13:00 (Verticale Cyberworld)</strong>
-                Analisi difensiva: Framework normativi & Core Cybersecurity Tools.<br>
-                <strong class="text-slate-900 block mt-2 mb-1">14:00 - 22:00 (Comune)</strong>
-                Dall'on-premise al Cloud + Intervento di un Ospite Universitario (UNIMORE).<br>
-                <span class="text-xs text-slate-400 block mt-1">Cena sui colli presso «Spaccio Belfiore» & Social Gathering</span>
+              <td class="font-medium whitespace-nowrap" style="color: var(--apple-amber);">Domenica 5 Luglio</td>
+              <td>
+                <strong class="block mb-1">09:00 - 13:00 (Verticale Cyberworld)</strong>
+                Analisi difensiva: Framework normativi & Core Cybersecurity Tools.
+                <strong class="block mt-3 mb-1">14:00 - 22:00 (Comune)</strong>
+                Dall'on-premise al Cloud + Intervento di un Ospite Universitario (UNIMORE).
+                <div class="text-sm text-[var(--apple-gray-4)] mt-2">Cena sui colli presso «Spaccio Belfiore»</div>
               </td>
             </tr>
             <tr>
-              <td class="py-4 px-5 font-semibold text-amber-600 whitespace-nowrap">Lunedì 6 Luglio</td>
-              <td class="py-4 px-5">
-                <strong class="text-slate-900 block mb-1">09:00 - 14:00 (Comune)</strong>
-                Giochiamo con i dati & Vibe Coding 101.<br>
-                <strong class="text-slate-900 block mt-2 mb-1">15:00 - 22:00 (Specifico CW)</strong>
-                Comunicazione Efficace + <span class="font-semibold text-amber-700">Lancio dei Project Work Cyberworld</span>.<br>
-                <span class="text-xs text-slate-400 block mt-1">Smartphone Free Lunch | Cena presso Bologna Business School</span>
+              <td class="font-medium whitespace-nowrap" style="color: var(--apple-amber);">Lunedì 6 Luglio</td>
+              <td>
+                <strong class="block mb-1">09:00 - 14:00 (Comune)</strong>
+                Giochiamo con i dati & Vibe Coding 101.
+                <strong class="block mt-3 mb-1">15:00 - 22:00 (Specifico CW)</strong>
+                Comunicazione Efficace + <span class="font-semibold" style="color: var(--apple-amber);">Lancio dei Project Work Cyberworld</span>.
+                <div class="text-sm text-[var(--apple-gray-4)] mt-2">Smartphone Free Lunch | Cena presso Bologna Business School</div>
               </td>
             </tr>
             <tr>
-              <td class="py-4 px-5 font-semibold text-amber-600 whitespace-nowrap">Martedì 7 Luglio</td>
-              <td class="py-4 px-5">
-                <strong class="text-slate-900 block mb-1">10:00 - 12:30 (Comune)</strong>
-                Company Visit: Data Center Herabit.<br>
-                <strong class="text-slate-900 block mt-2 mb-1">15:00 - 22:00 (Specifico CW)</strong>
-                Incontro con gli Ospiti di Vertiv + Sviluppo del <span class="font-semibold text-amber-700">Project Work CW</span>.<br>
-                <span class="text-xs text-slate-400 block mt-1">Visita al centro storico & Cena presso «Trattoria Da Me»</span>
+              <td class="font-medium whitespace-nowrap" style="color: var(--apple-amber);">Martedì 7 Luglio</td>
+              <td>
+                <strong class="block mb-1">10:00 - 12:30 (Comune)</strong>
+                Company Visit: Data Center Herabit.
+                <strong class="block mt-3 mb-1">15:00 - 22:00 (Specifico CW)</strong>
+                Incontro con gli Ospiti di Vertiv + Sviluppo del <span class="font-semibold" style="color: var(--apple-amber);">Project Work CW</span>.
+                <div class="text-sm text-[var(--apple-gray-4)] mt-2">Visita centro storico & Cena presso «Trattoria Da Me»</div>
               </td>
             </tr>
             <tr>
-              <td class="py-4 px-5 font-semibold text-amber-600 whitespace-nowrap">Mercoledì 8 Luglio</td>
-              <td class="py-4 px-5">
-                <strong class="text-slate-900 block mb-1">09:00 - 14:00 (Specifico CW)</strong>
-                Sviluppo architetture di sicurezza e laboratori interni per il <span class="font-semibold text-amber-700">Project Work CW</span>.<br>
-                <strong class="text-slate-900 block mt-2 mb-1">15:00 - 22:00 (Comune)</strong>
-                Lavoro ai progetti + Visita Mostra & Laboratorio (Staff MAST. Gallery).<br>
-                <span class="text-xs text-slate-400 block mt-1">Smartphone Free Lunch | Cena presso «Taverna del Castoro» & Serata Karaoke</span>
+              <td class="font-medium whitespace-nowrap" style="color: var(--apple-amber);">Mercoledì 8 Luglio</td>
+              <td>
+                <strong class="block mb-1">09:00 - 14:00 (Specifico CW)</strong>
+                Sviluppo architetture di sicurezza e laboratori interni per il <span class="font-semibold" style="color: var(--apple-amber);">Project Work CW</span>.
+                <strong class="block mt-3 mb-1">15:00 - 22:00 (Comune)</strong>
+                Lavoro ai progetti + Visita Mostra & Laboratorio (Staff MAST. Gallery).
+                <div class="text-sm text-[var(--apple-gray-4)] mt-2">Smartphone Free Lunch | Cena presso «Taverna del Castoro» & Serata Karaoke</div>
               </td>
             </tr>
             <tr>
-              <td class="py-4 px-5 font-semibold text-amber-600 whitespace-nowrap">Giovedì 9 Luglio</td>
-              <td class="py-4 px-5">
-                <strong class="text-slate-900 block mb-1">09:00 - 14:00 (Specifico CW)</strong>
-                Testing vulnerabilità, ottimizzazioni e chiusura degli elaborati del <span class="font-semibold text-amber-700">Project Work CW</span>.<br>
-                <strong class="text-slate-900 block mt-2 mb-1">15:00 - 22:00 (Comune)</strong>
-                Incontro con Ospite istituzionale (Almacube) + Chiusura Elaborati.<br>
-                <span class="text-xs text-slate-400 block mt-1">Cena presso «Villa Aretusi» & Orientamento Universitario</span>
+              <td class="font-medium whitespace-nowrap" style="color: var(--apple-amber);">Giovedì 9 Luglio</td>
+              <td>
+                <strong class="block mb-1">09:00 - 14:00 (Specifico CW)</strong>
+                Testing vulnerabilità, ottimizzazioni e chiusura degli elaborati del <span class="font-semibold" style="color: var(--apple-amber);">Project Work CW</span>.
+                <strong class="block mt-3 mb-1">15:00 - 22:00 (Comune)</strong>
+                Incontro con Ospite istituzionale (Almacube) + Chiusura Elaborati.
+                <div class="text-sm text-[var(--apple-gray-4)] mt-2">Cena presso «Villa Aretusi» & Orientamento Universitario</div>
               </td>
             </tr>
             <tr>
-              <td class="py-4 px-5 font-semibold text-amber-600 whitespace-nowrap">Venerdì 10 Luglio</td>
-              <td class="py-4 px-5">
-                <strong class="text-slate-900 block mb-1">09:00 - 13:00 (Comune)</strong>
-                <span class="font-bold text-amber-700">PROJECT PRESENTATION</span> alla presenza dei Coordinatori.<br>
-                <strong class="text-slate-900 block mt-2 mb-1">13:00 (Comune)</strong>
-                <span class="font-bold text-indigo-700">CLOSING CEREMONY</span>.<br>
-                <span class="text-xs text-slate-400 block mt-1">Lunch Finale</span>
+              <td class="font-medium whitespace-nowrap" style="color: var(--apple-amber);">Venerdì 10 Luglio</td>
+              <td>
+                <strong class="block mb-1">09:00 - 13:00 (Comune)</strong>
+                <span class="font-semibold" style="color: var(--apple-amber);">PROJECT PRESENTATION</span> alla presenza dei Coordinatori.
+                <strong class="block mt-3 mb-1">13:00 (Comune)</strong>
+                <span class="font-semibold" style="color: var(--apple-blue);">CLOSING CEREMONY</span>.
+                <div class="text-sm text-[var(--apple-gray-4)] mt-2">Lunch Finale</div>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
       
-      <div class="w-full max-w-4xl mt-8 flex flex-col sm:flex-row gap-4 justify-between">
-        <a href="index.html" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-amber-800 text-xs sm:text-sm font-semibold transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2">
-          <i data-lucide="arrow-left" class="w-4 h-4" aria-hidden="true"></i> Torna alla Home
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-between">
+        <a href="index.html" class="btn-apple btn-apple-secondary inline-flex items-center justify-center">
+          <i data-lucide="arrow-left" class="w-4 h-4 mr-2" aria-hidden="true"></i> Torna alla Home
         </a>
-        <a href="prenota.html?track=cyber" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs sm:text-sm font-semibold transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2">
-          Iscriviti ora <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+        <a href="prenota.html?track=cyber" class="btn-apple btn-apple-primary inline-flex items-center justify-center" style="background: var(--apple-amber);">
+          Iscriviti ora <i data-lucide="arrow-right" class="w-4 h-4 ml-2" aria-hidden="true"></i>
         </a>
       </div>
     </section>
   </main>
 
-  <footer class="w-full py-6 md:py-8 text-center border-t border-slate-200 bg-white px-4" role="contentinfo">
-    <p class="text-xs sm:text-sm text-slate-500 font-medium">Innovazione e formazione per il futuro digitale.</p>
+  <footer class="w-full py-8 text-center px-6" role="contentinfo">
+    <p class="text-sm text-[var(--apple-gray-4)]">Innovazione e formazione per il futuro digitale.</p>
   </footer>
 
   <script>
@@ -196,8 +189,8 @@
       mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
       mobileMenu.classList.toggle('hidden');
       mobileMenuBtn.innerHTML = isExpanded 
-        ? '<i data-lucide="menu" class="w-6 h-6 text-slate-700"></i>'
-        : '<i data-lucide="x" class="w-6 h-6 text-slate-700"></i>';
+        ? '<i data-lucide="menu" class="w-5 h-5 text-[var(--apple-gray-1)]"></i>'
+        : '<i data-lucide="x" class="w-5 h-5 text-[var(--apple-gray-1)]"></i>';
       lucide.createIcons();
     });
   </script>

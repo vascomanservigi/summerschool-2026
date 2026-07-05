@@ -19,113 +19,134 @@
   <title>MAST Summer School 2026</title>
   
   <link rel="canonical" href="index.html">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          backgroundImage: {
-            'hero-dark': "linear-gradient(135deg, #0f172a 0%, #1e1b4b 40%, #312e81 70%, #1e1b4b 100%)",
-          }
-        }
-      }
-    }
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
 </head>
-<body class="w-full min-h-screen bg-slate-50 text-slate-900 flex flex-col justify-between overflow-x-hidden antialiased">
+<body class="w-full min-h-screen flex flex-col overflow-x-hidden">
 
   <header>
-    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/90 border-b border-gray-200 w-full" role="navigation" aria-label="Menu principale">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        <a href="index.html" class="font-bold text-base sm:text-lg md:text-xl tracking-tight text-slate-900 whitespace-nowrap" aria-label="MAST Summer School - Home">MAST Summer School</a>
+    <nav class="fixed top-0 left-0 right-0 z-50 w-full" role="navigation" aria-label="Menu principale">
+      <div class="max-w-[1024px] mx-auto px-6 flex items-center justify-between h-12">
+        <a href="index.html" class="font-semibold text-base text-[var(--apple-gray-1)] tracking-tight whitespace-nowrap" aria-label="MAST Summer School - Home">MAST</a>
         
-        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
-          <i data-lucide="menu" class="w-6 h-6 text-slate-700"></i>
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-[var(--apple-gray-6)] transition-colors" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
+          <i data-lucide="menu" class="w-5 h-5 text-[var(--apple-gray-1)]"></i>
         </button>
         
-        <div class="hidden md:flex items-center gap-4 lg:gap-6">
-          <a href="iot.html" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded">IoT</a> 
-          <a href="ai.html" class="text-sm font-medium text-gray-600 hover:text-violet-600 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 rounded">AI</a> 
-          <a href="cyber.html" class="text-sm font-medium text-gray-600 hover:text-amber-600 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 rounded">Cybersecurity</a>
-          <a href="prenota.html" class="text-sm font-semibold px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Prenota</a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="iot.html" class="text-xs font-medium text-[var(--apple-gray-3)] hover:text-[var(--apple-emerald)] transition-colors">IoT</a> 
+          <a href="ai.html" class="text-xs font-medium text-[var(--apple-gray-3)] hover:text-[var(--apple-violet)] transition-colors">AI</a> 
+          <a href="cyber.html" class="text-xs font-medium text-[var(--apple-gray-3)] hover:text-[var(--apple-amber)] transition-colors">Cybersecurity</a>
+          <a href="prenota.html" class="btn-apple btn-apple-primary text-xs py-2 px-4">Iscriviti</a>
         </div>
       </div>
       
-      <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-xl">
-        <div class="px-4 py-4 space-y-2">
-          <a href="iot.html" class="block py-2 px-3 rounded-lg text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">IoT</a>
-          <a href="ai.html" class="block py-2 px-3 rounded-lg text-gray-600 hover:bg-violet-50 hover:text-violet-600 transition-colors">AI</a>
-          <a href="cyber.html" class="block py-2 px-3 rounded-lg text-gray-600 hover:bg-amber-50 hover:text-amber-600 transition-colors">Cybersecurity</a>
-          <a href="prenota.html" class="block py-2 px-3 rounded-lg bg-indigo-600 text-white font-semibold text-center mt-2">Prenota</a>
+      <div id="mobile-menu" class="hidden md:hidden border-t border-[rgba(0,0,0,0.1)]">
+        <div class="px-6 py-4 space-y-1">
+          <a href="iot.html" class="block py-3 text-base text-[var(--apple-gray-2)] hover:text-[var(--apple-emerald)] transition-colors">IoT</a>
+          <a href="ai.html" class="block py-3 text-base text-[var(--apple-gray-2)] hover:text-[var(--apple-violet)] transition-colors">AI</a>
+          <a href="cyber.html" class="block py-3 text-base text-[var(--apple-gray-2)] hover:text-[var(--apple-amber)] transition-colors">Cybersecurity</a>
+          <a href="prenota.html" class="btn-apple btn-apple-primary w-full mt-4 text-center">Iscriviti</a>
         </div>
       </div>
     </nav>
   </header>
 
-  <main class="pt-16 w-full flex-grow">
-    <section class="bg-hero-dark flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 relative overflow-hidden min-h-[65vh] md:min-h-[75vh] w-full" aria-labelledby="hero-title">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(99,102,241,0.15),transparent_60%)] pointer-events-none" aria-hidden="true"></div>
-      <div class="relative z-10 text-white w-full max-w-4xl mx-auto py-12">
-        <p class="text-xs sm:text-sm uppercase tracking-widest mb-3 text-indigo-300 font-bold fade-up fade-up-1">Benvenuto</p>
-        <h1 id="hero-title" class="font-bold text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-indigo-200 fade-up fade-up-2">
-          MAST Summer School 2026
+  <main class="pt-12 w-full flex-grow">
+    <section class="hero-section flex flex-col items-center justify-center text-center px-6 min-h-[85vh] w-full" aria-labelledby="hero-title">
+      <div class="relative z-10 w-full max-w-4xl mx-auto py-20">
+        <p class="text-sm uppercase tracking-wider mb-4 text-[var(--apple-gray-4)] font-medium fade-up fade-up-1">Estate 2026</p>
+        <h1 id="hero-title" class="font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight fade-up fade-up-2" style="color: var(--apple-gray-1);">
+          MAST Summer School
         </h1>
-        <p class="mt-4 sm:mt-6 text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2 fade-up fade-up-3">
+        <p class="mt-6 text-lg sm:text-xl md:text-2xl text-[var(--apple-gray-3)] max-w-2xl mx-auto leading-relaxed fade-up fade-up-3" style="letter-spacing: -0.022em;">
           Tecnologia, innovazione e competenze pratiche per i professionisti di domani.
         </p>
-        <div class="mt-8 fade-up fade-up-3">
-          <a href="prenota.html" class="inline-block w-full sm:w-auto px-8 py-3.5 rounded-full font-semibold text-base bg-indigo-600 text-white transition-all hover:bg-indigo-700 active:scale-95 shadow-lg shadow-indigo-500/30 text-center focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-slate-900">
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center fade-up fade-up-3">
+          <a href="prenota.html" class="btn-apple btn-apple-primary">
             Iscriviti Ora
+          </a>
+          <a href="#percorsi" class="btn-apple btn-apple-secondary">
+            Scopri i percorsi
           </a>
         </div>
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 w-full" aria-labelledby="tracks-title">
-      <div class="w-full text-center mb-12 md:mb-16">
-        <h2 id="tracks-title" class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-slate-900">I Nostri Percorsi</h2>
-        <p class="text-slate-500 max-w-xl mx-auto text-xs sm:text-sm md:text-base">Tre specializzazioni esclusive progettate per darti competenze pratiche spendibili fin da subito.</p>
+    <section id="percorsi" class="max-w-[1024px] mx-auto px-6 py-20 md:py-32 w-full" aria-labelledby="tracks-title">
+      <div class="w-full text-center mb-16">
+        <h2 id="tracks-title" class="section-title mb-4">I Nostri Percorsi</h2>
+        <p class="section-subtitle max-w-2xl mx-auto">Tre specializzazioni esclusive per competenze pratiche subito spendibili.</p>
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
-        <article class="track-card">
-          <a href="iot.html" class="group border border-slate-200 rounded-2xl p-6 md:p-8 block bg-white shadow-sm hover:shadow-md transition-all active:scale-[0.99] h-full focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2">
-            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform" aria-hidden="true">
-              <i data-lucide="radio" class="w-6 h-6"></i>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
+        <article class="apple-card">
+          <a href="iot.html" class="block h-full focus:outline-none focus:ring-2 focus:ring-[var(--apple-emerald)] focus:ring-offset-2 rounded-[18px]">
+            <div class="apple-card-icon" style="background: rgba(48, 209, 88, 0.12);" aria-hidden="true">
+              <i data-lucide="radio" class="w-7 h-7" style="color: var(--apple-emerald);"></i>
             </div>
-            <h3 class="text-lg md:text-xl font-bold mb-2 text-emerald-600">Internet of Things</h3>
-            <p class="text-slate-600 leading-relaxed text-xs sm:text-sm md:text-base">Connetti il mondo hardware alle piattaforme cloud con sensori, microcontrollori e analisi dati in real-time.</p>
+            <h3 class="apple-card-title" style="color: var(--apple-emerald);">Internet of Things</h3>
+            <p class="apple-card-description">Connetti il mondo hardware alle piattaforme cloud con sensori, microcontrollori e analisi dati in real-time.</p>
+            <div class="mt-4 flex items-center text-sm font-medium" style="color: var(--apple-blue);">
+              Scopri di più <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            </div>
           </a>
         </article>
 
-        <article class="track-card">
-          <a href="ai.html" class="group border border-slate-200 rounded-2xl p-6 md:p-8 block bg-white shadow-sm hover:shadow-md transition-all active:scale-[0.99] h-full focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2">
-            <div class="w-12 h-12 rounded-xl bg-violet-100 text-violet-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform" aria-hidden="true">
-              <i data-lucide="brain" class="w-6 h-6"></i>
+        <article class="apple-card">
+          <a href="ai.html" class="block h-full focus:outline-none focus:ring-2 focus:ring-[var(--apple-violet)] focus:ring-offset-2 rounded-[18px]">
+            <div class="apple-card-icon" style="background: rgba(191, 90, 242, 0.12);" aria-hidden="true">
+              <i data-lucide="brain" class="w-7 h-7" style="color: var(--apple-violet);"></i>
             </div>
-            <h3 class="text-lg md:text-xl font-bold mb-2 text-violet-600">Artificial Intelligence</h3>
-            <p class="text-slate-600 leading-relaxed text-xs sm:text-sm md:text-base">Sviluppa modelli predittivi, lavora con reti neurali generative e scopri come orchestrare i Large Language Models.</p>
+            <h3 class="apple-card-title" style="color: var(--apple-violet);">Artificial Intelligence</h3>
+            <p class="apple-card-description">Sviluppa modelli predittivi, lavora con reti neurali generative e orchestra i Large Language Models.</p>
+            <div class="mt-4 flex items-center text-sm font-medium" style="color: var(--apple-blue);">
+              Scopri di più <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            </div>
           </a>
         </article>
 
-        <article class="track-card">
-          <a href="cyber.html" class="group border border-slate-200 rounded-2xl p-6 md:p-8 block bg-white shadow-sm hover:shadow-md transition-all active:scale-[0.99] h-full focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2">
-            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform" aria-hidden="true">
-              <i data-lucide="shield" class="w-6 h-6"></i>
+        <article class="apple-card">
+          <a href="cyber.html" class="block h-full focus:outline-none focus:ring-2 focus:ring-[var(--apple-amber)] focus:ring-offset-2 rounded-[18px]">
+            <div class="apple-card-icon" style="background: rgba(255, 159, 10, 0.12);" aria-hidden="true">
+              <i data-lucide="shield" class="w-7 h-7" style="color: var(--apple-amber);"></i>
             </div>
-            <h3 class="text-lg md:text-xl font-bold mb-2 text-amber-600">Cyberworld</h3>
-            <p class="text-slate-600 leading-relaxed text-xs sm:text-sm md:text-base">Impara i fondamenti dell'ethical hacking, della crittografia e metti in sicurezza infrastrutture di rete critiche.</p>
+            <h3 class="apple-card-title" style="color: var(--apple-amber);">Cyberworld</h3>
+            <p class="apple-card-description">Impara i fondamenti dell'ethical hacking, della crittografia e metti in sicurezza infrastrutture critiche.</p>
+            <div class="mt-4 flex items-center text-sm font-medium" style="color: var(--apple-blue);">
+              Scopri di più <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            </div>
           </a>
         </article>
       </div>
     </section>
+    
+    <section class="w-full py-20 md:py-32 bg-[var(--apple-gray-6)]">
+      <div class="max-w-[1024px] mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="section-title mb-4">Perché Scegliere MAST</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div>
+            <div class="text-5xl font-semibold mb-2" style="color: var(--apple-blue);">8</div>
+            <div class="text-base text-[var(--apple-gray-3)]">Giorni intensivi</div>
+          </div>
+          <div>
+            <div class="text-5xl font-semibold mb-2" style="color: var(--apple-blue);">3</div>
+            <div class="text-base text-[var(--apple-gray-3)]">Percorsi specialistici</div>
+          </div>
+          <div>
+            <div class="text-5xl font-semibold mb-2" style="color: var(--apple-blue);">1</div>
+            <div class="text-base text-[var(--apple-gray-3)]">Project Work finale</div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="w-full py-6 md:py-8 text-center border-t border-slate-200 bg-white px-4" role="contentinfo">
-    <p class="text-xs sm:text-sm text-slate-500 font-medium">Innovazione e formazione per il futuro digitale.</p>
+  <footer class="w-full py-8 text-center px-6" role="contentinfo">
+    <p class="text-sm text-[var(--apple-gray-4)]">Innovazione e formazione per il futuro digitale.</p>
   </footer>
 
   <script>
@@ -139,8 +160,8 @@
       mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
       mobileMenu.classList.toggle('hidden');
       mobileMenuBtn.innerHTML = isExpanded 
-        ? '<i data-lucide="menu" class="w-6 h-6 text-slate-700"></i>'
-        : '<i data-lucide="x" class="w-6 h-6 text-slate-700"></i>';
+        ? '<i data-lucide="menu" class="w-5 h-5 text-[var(--apple-gray-1)]"></i>'
+        : '<i data-lucide="x" class="w-5 h-5 text-[var(--apple-gray-1)]"></i>';
       lucide.createIcons();
     });
     
@@ -148,7 +169,7 @@
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
         mobileMenuBtn.setAttribute('aria-expanded', 'false');
-        mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6 text-slate-700"></i>';
+        mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-5 h-5 text-[var(--apple-gray-1)]"></i>';
         lucide.createIcons();
       });
     });
