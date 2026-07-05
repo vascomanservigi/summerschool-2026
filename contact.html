@@ -26,14 +26,14 @@
             <i data-lucide="moon" class="w-5 h-5 theme-icon-dark hidden"></i>
           </button>
           
-          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-[var(--bg-secondary)] transition-colors" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-menu">
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-[var(--bg-secondary)] transition-colors" aria-label="Apri menu">
             <i data-lucide="menu" class="w-5 h-5 text-[var(--text-primary)]"></i>
           </button>
           
           <div class="hidden md:flex items-center gap-6">
             <a href="about.html" class="text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--apple-blue)] transition-colors">Chi Siamo</a>
             <a href="speakers.html" class="text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--apple-blue)] transition-colors">Docenti</a>
-            <a href="contact.html" class="text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--apple-blue)] transition-colors">Contatti</a>
+            <a href="contact.html" class="text-xs font-semibold text-[var(--apple-blue)]">Contatti</a>
             <a href="prenota.html" class="btn-apple btn-apple-primary text-xs py-2 px-4">Iscriviti</a>
           </div>
         </div>
@@ -50,43 +50,112 @@
           </div>
           <a href="about.html" class="block py-3 text-base text-[var(--text-primary)]">Chi Siamo</a>
           <a href="speakers.html" class="block py-3 text-base text-[var(--text-primary)]">Docenti</a>
-          <a href="contact.html" class="block py-3 text-base text-[var(--text-primary)]">Contatti</a>
+          <a href="contact.html" class="block py-3 text-base font-semibold text-[var(--apple-blue)]">Contatti</a>
           <a href="prenota.html" class="btn-apple btn-apple-primary w-full mt-4 text-center">Iscriviti</a>
         </div>
       </div>
     </nav>
   </header>
 
-  <main class="pt-14 w-full flex-grow">
+  <main class="pt-12 w-full flex-grow">
+    <!-- Hero Section -->
     <section class="w-full py-20 md:py-28 bg-[var(--bg-secondary)]">
-      <div class="max-w-[1200px] mx-auto px-6 text-center">
+      <div class="max-w-[1024px] mx-auto px-6 text-center">
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6" style="background: rgba(0, 113, 227, 0.12);">
+          <i data-lucide="mail" class="w-10 h-10" style="color: var(--apple-blue);"></i>
+        </div>
         <h1 class="section-title mb-4">Contattaci</h1>
-        <p class="section-subtitle max-w-2xl mx-auto">Hai domande? Siamo qui per aiutarti. Compila il form o utilizza i nostri contatti diretti.</p>
+        <p class="section-subtitle max-w-2xl mx-auto">Hai domande? Siamo qui per aiutarti.</p>
       </div>
     </section>
 
-    <section class="max-w-[1200px] mx-auto px-6 py-20">
-      <div class="grid md:grid-cols-2 gap-16">
-        <div>
-          <h2 class="section-title text-3xl mb-8">Inviaci un Messaggio</h2>
-          <form id="contact-form" class="space-y-6">
-            <div class="grid sm:grid-cols-2 gap-4">
+    <!-- Contact Cards -->
+    <section class="max-w-[1024px] mx-auto px-6 py-16">
+      <div class="grid md:grid-cols-3 gap-6 mb-16">
+        <div class="apple-card text-center">
+          <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4" style="background: rgba(0, 113, 227, 0.12);">
+            <i data-lucide="mail" class="w-7 h-7" style="color: var(--apple-blue);"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Email</h3>
+          <p class="text-[var(--text-secondary)] mb-2">summerschool@mast.org</p>
+          <p class="text-xs text-[var(--text-secondary)]">Risposta entro 24h</p>
+        </div>
+        
+        <div class="apple-card text-center">
+          <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4" style="background: rgba(0, 113, 227, 0.12);">
+            <i data-lucide="phone" class="w-7 h-7" style="color: var(--apple-blue);"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Telefono</h3>
+          <p class="text-[var(--text-secondary)] mb-2">+39 051 645 0111</p>
+          <p class="text-xs text-[var(--text-secondary)]">Lun-Ven 9:00-18:00</p>
+        </div>
+        
+        <div class="apple-card text-center">
+          <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-4" style="background: rgba(0, 113, 227, 0.12);">
+            <i data-lucide="map-pin" class="w-7 h-7" style="color: var(--apple-blue);"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Indirizzo</h3>
+          <p class="text-[var(--text-secondary)] mb-2">Via F. Ozanam, 18</p>
+          <p class="text-xs text-[var(--text-secondary)]">40125 Bologna</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="w-full py-16 bg-[var(--bg-secondary)]">
+      <div class="max-w-[800px] mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="section-title text-2xl mb-4">Inviaci un Messaggio</h2>
+          <p class="text-[var(--text-secondary)]">Compila il form e ti risponderemo al più presto.</p>
+        </div>
+        
+        <div class="bg-[var(--bg-primary)] rounded-3xl p-8 md:p-12 shadow-lg">
+          <form id="contact-form" class="space-y-8">
+            <div class="grid md:grid-cols-2 gap-6">
               <div>
-                <label class="block text-sm font-medium text-[var(--text-primary)] mb-2">Nome</label>
-                <input type="text" name="first_name" required class="w-full" placeholder="Mario">
+                <label class="block text-sm font-semibold text-[var(--text-primary)] mb-3">Nome</label>
+                <input 
+                  type="text" 
+                  name="first_name" 
+                  required 
+                  class="w-full px-5 py-4 text-base rounded-2xl"
+                  placeholder="Mario"
+                  style="border: 2px solid var(--border-color);"
+                >
               </div>
               <div>
-                <label class="block text-sm font-medium text-[var(--text-primary)] mb-2">Cognome</label>
-                <input type="text" name="last_name" required class="w-full" placeholder="Rossi">
+                <label class="block text-sm font-semibold text-[var(--text-primary)] mb-3">Cognome</label>
+                <input 
+                  type="text" 
+                  name="last_name" 
+                  required 
+                  class="w-full px-5 py-4 text-base rounded-2xl"
+                  placeholder="Rossi"
+                  style="border: 2px solid var(--border-color);"
+                >
               </div>
             </div>
+            
             <div>
-              <label class="block text-sm font-medium text-[var(--text-primary)] mb-2">Email</label>
-              <input type="email" name="email" required class="w-full" placeholder="mario.rossi@email.com">
+              <label class="block text-sm font-semibold text-[var(--text-primary)] mb-3">Email</label>
+              <input 
+                type="email" 
+                name="email" 
+                required 
+                class="w-full px-5 py-4 text-base rounded-2xl"
+                placeholder="mario.rossi@email.com"
+                style="border: 2px solid var(--border-color);"
+              >
             </div>
+            
             <div>
-              <label class="block text-sm font-medium text-[var(--text-primary)] mb-2">Oggetto</label>
-              <select name="subject" required class="w-full">
+              <label class="block text-sm font-semibold text-[var(--text-primary)] mb-3">Oggetto</label>
+              <select 
+                name="subject" 
+                required 
+                class="w-full px-5 py-4 text-base rounded-2xl"
+                style="border: 2px solid var(--border-color);"
+              >
                 <option value="">Seleziona un argomento...</option>
                 <option value="info">Informazioni generali</option>
                 <option value="registration">Iscrizione</option>
@@ -95,90 +164,55 @@
                 <option value="other">Altro</option>
               </select>
             </div>
+            
             <div>
-              <label class="block text-sm font-medium text-[var(--text-primary)] mb-2">Messaggio</label>
-              <textarea name="message" rows="5" required class="w-full" placeholder="Scrivi qui il tuo messaggio..."></textarea>
+              <label class="block text-sm font-semibold text-[var(--text-primary)] mb-3">Messaggio</label>
+              <textarea 
+                name="message" 
+                rows="6" 
+                required 
+                class="w-full px-5 py-4 text-base rounded-2xl resize-none"
+                placeholder="Scrivi qui il tuo messaggio..."
+                style="border: 2px solid var(--border-color);"
+              ></textarea>
             </div>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="privacy" required class="w-5 h-5 rounded">
-              <label for="privacy" class="text-sm text-[var(--text-secondary)]">Accetto la <a href="#" class="text-[var(--apple-blue)] underline">Privacy Policy</a></label>
+            
+            <div class="flex items-start gap-3">
+              <input type="checkbox" id="privacy" required class="w-5 h-5 mt-0.5 rounded" style="accent-color: var(--apple-blue);">
+              <label for="privacy" class="text-sm text-[var(--text-secondary)]">
+                Accetto la <a href="#" class="text-[var(--apple-blue)] hover:underline">Privacy Policy</a>
+              </label>
             </div>
-            <button type="submit" class="btn-apple btn-apple-primary w-full sm:w-auto">Invia Messaggio</button>
+            
+            <button type="submit" class="btn-apple btn-apple-primary w-full text-base py-4">
+              Invia Messaggio
+            </button>
           </form>
-          <div id="contact-success" class="hidden text-center py-8">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style="background: rgba(48, 209, 88, 0.12);">
-              <i data-lucide="check-circle" class="w-8 h-8" style="color: var(--apple-emerald);"></i>
+          
+          <div id="contact-success" class="hidden text-center py-12">
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full mb-6" style="background: rgba(48, 209, 88, 0.12);">
+              <i data-lucide="check-circle" class="w-10 h-10" style="color: var(--apple-emerald);"></i>
             </div>
-            <p class="font-semibold text-xl text-[var(--text-primary)]">Messaggio inviato!</p>
-            <p class="text-[var(--text-secondary)] mt-2">Ti risponderemo entro 24 ore lavorative.</p>
-          </div>
-        </div>
-
-        <div>
-          <h2 class="section-title text-3xl mb-8">Informazioni di Contatto</h2>
-          <div class="space-y-6">
-            <div class="apple-card">
-              <div class="flex items-start gap-4">
-                <div class="benefit-icon flex-shrink-0"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
-                <div>
-                  <h3 class="font-bold mb-1">Indirizzo</h3>
-                  <p class="text-[var(--text-secondary)]">Via Federico Ozanam, 18<br>40125 Bologna (BO), Italia</p>
-                </div>
-              </div>
-            </div>
-            <div class="apple-card">
-              <div class="flex items-start gap-4">
-                <div class="benefit-icon flex-shrink-0"><i data-lucide="mail" class="w-6 h-6"></i></div>
-                <div>
-                  <h3 class="font-bold mb-1">Email</h3>
-                  <p class="text-[var(--text-secondary)]">summerschool@mast.org<br>Rispondiamo entro 24h</p>
-                </div>
-              </div>
-            </div>
-            <div class="apple-card">
-              <div class="flex items-start gap-4">
-                <div class="benefit-icon flex-shrink-0"><i data-lucide="phone" class="w-6 h-6"></i></div>
-                <div>
-                  <h3 class="font-bold mb-1">Telefono</h3>
-                  <p class="text-[var(--text-secondary)]">+39 051 645 0111<br>Lun-Ven 9:00-18:00</p>
-                </div>
-              </div>
-            </div>
-            <div class="apple-card">
-              <div class="flex items-start gap-4">
-                <div class="benefit-icon flex-shrink-0"><i data-lucide="clock" class="w-6 h-6"></i></div>
-                <div>
-                  <h3 class="font-bold mb-1">Orari Segreteria</h3>
-                  <p class="text-[var(--text-secondary)]">Lunedì - Venerdì: 9:00 - 18:00<br>Sabato: 10:00 - 13:00</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-8">
-            <h3 class="font-bold mb-4">Seguici sui Social</h3>
-            <div class="flex gap-3">
-              <a href="#" class="share-btn twitter"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-              <a href="#" class="share-btn linkedin"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-              <a href="#" class="share-btn facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-              <a href="#" class="share-btn"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-              <a href="#" class="share-btn"><i data-lucide="youtube" class="w-5 h-5"></i></a>
-            </div>
+            <p class="font-semibold text-2xl text-[var(--text-primary)] mb-2">Messaggio inviato!</p>
+            <p class="text-[var(--text-secondary)]">Ti risponderemo entro 24 ore lavorative.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="w-full">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2847.8333744417265!2d11.351896076884!3d44.50746497176292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477fd3d0c5a17dbd%3A0x9e93a4f7b7a7f7a7!2sVia%20Federico%20Ozanam%2C%2018%2C%2040125%20Bologna%20BO!5e0!3m2!1sit!2sit!4v1699999999999!5m2!1sit!2sit"
-        width="100%" 
-        height="450" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+    <!-- Social Section -->
+    <section class="max-w-[1024px] mx-auto px-6 py-16">
+      <div class="text-center">
+        <h2 class="section-title text-2xl mb-4">Seguici sui Social</h2>
+        <p class="text-[var(--text-secondary)] mb-8">Resta aggiornato sulle nostre attività.</p>
+        <div class="flex justify-center gap-4">
+          <a href="#" class="share-btn twitter"><i data-lucide="twitter" class="w-6 h-6"></i></a>
+          <a href="#" class="share-btn linkedin"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+          <a href="#" class="share-btn facebook"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+          <a href="#" class="share-btn"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+          <a href="#" class="share-btn"><i data-lucide="youtube" class="w-6 h-6"></i></a>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -224,8 +258,8 @@
       const menu = document.getElementById('mobile-menu');
       menu.classList.toggle('hidden');
       this.innerHTML = menu.classList.contains('hidden') 
-        ? '<i data-lucide="menu" class="w-6 h-6 text-[var(--text-primary)]"></i>'
-        : '<i data-lucide="x" class="w-6 h-6 text-[var(--text-primary)]"></i>';
+        ? '<i data-lucide="menu" class="w-5 h-5 text-[var(--text-primary)]"></i>'
+        : '<i data-lucide="x" class="w-5 h-5 text-[var(--text-primary)]"></i>';
       lucide.createIcons();
     });
     
