@@ -75,20 +75,38 @@
       </div>
       
       <form id="registration-form" class="space-y-5" novalidate>
-        <div>
-          <label class="block text-sm font-medium text-[var(--text-primary)] mb-2" for="field-name">Nome Completo</label>
-          <input 
-            id="field-name" 
-            name="name" 
-            type="text" 
-            required 
-            autocomplete="name"
-            aria-required="true"
-            aria-describedby="name-error"
-            class="w-full"
-            placeholder="Mario Rossi"
-          >
-          <p id="name-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-[var(--text-primary)] mb-2" for="field-nome">Nome</label>
+            <input 
+              id="field-nome" 
+              name="nome" 
+              type="text" 
+              required 
+              autocomplete="given-name"
+              aria-required="true"
+              aria-describedby="nome-error"
+              class="w-full"
+              placeholder="Mario"
+            >
+            <p id="nome-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-[var(--text-primary)] mb-2" for="field-cognome">Cognome</label>
+            <input 
+              id="field-cognome" 
+              name="cognome" 
+              type="text" 
+              required 
+              autocomplete="family-name"
+              aria-required="true"
+              aria-describedby="cognome-error"
+              class="w-full"
+              placeholder="Rossi"
+            >
+            <p id="cognome-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
+          </div>
         </div>
         
         <div>
@@ -105,6 +123,41 @@
             placeholder="mario.rossi@email.com"
           >
           <p id="email-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-[var(--text-primary)] mb-2" for="field-sesso">Sesso</label>
+            <select 
+              id="field-sesso" 
+              name="sesso"
+              required 
+              aria-required="true"
+              aria-describedby="sesso-error"
+              class="w-full"
+            >
+              <option value="">Seleziona...</option>
+              <option value="maschio">Maschio</option>
+              <option value="femmina">Femmina</option>
+              <option value="altro">Altro</option>
+              <option value="preferisco-non-dire">Preferisco non dirlo</option>
+            </select>
+            <p id="sesso-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-[var(--text-primary)] mb-2" for="field-data-nascita">Data di Nascita</label>
+            <input 
+              id="field-data-nascita" 
+              name="data_nascita" 
+              type="date" 
+              required 
+              aria-required="true"
+              aria-describedby="data-nascita-error"
+              class="w-full"
+            >
+            <p id="data-nascita-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
+          </div>
         </div>
         
         <div>
@@ -222,37 +275,67 @@
     
     // Form Validation
     const form = document.getElementById('registration-form');
-    const nameInput = document.getElementById('field-name');
+    const nomeInput = document.getElementById('field-nome');
+    const cognomeInput = document.getElementById('field-cognome');
     const emailInput = document.getElementById('field-email');
+    const sessoSelect = document.getElementById('field-sesso');
+    const dataNascitaInput = document.getElementById('field-data-nascita');
     const trackSelect = document.getElementById('field-track');
     
     const errorMessages = {
-      name: 'Inserisci un nome valido (minimo 2 caratteri)',
+      nome: 'Inserisci un nome valido (minimo 2 caratteri)',
+      cognome: 'Inserisci un cognome valido (minimo 2 caratteri)',
       email: 'Inserisci un indirizzo email valido',
+      sesso: 'Seleziona il sesso',
+      data_nascita: 'Inserisci una data di nascita valida',
       track: 'Seleziona un percorso'
     };
     
     function showError(field, message) {
-      document.getElementById(`${field}-error`).textContent = message;
-      document.getElementById(`${field}-error`).classList.remove('hidden');
-      document.getElementById(`field-${field}`).style.borderColor = '#ef4444';
+      const errorElement = document.getElementById(`${field.replace('_', '-')}-error`);
+      if (errorElement) {
+        errorElement.textContent = message;
+        errorElement.classList.remove('hidden');
+      }
+      const inputElement = document.getElementById(`field-${field.replace('_', '-')}`);
+      if (inputElement) {
+        inputElement.style.borderColor = '#ef4444';
+      }
     }
     
     function clearError(field) {
-      document.getElementById(`${field}-error`).classList.add('hidden');
-      document.getElementById(`field-${field}`).style.borderColor = '';
+      const errorElement = document.getElementById(`${field.replace('_', '-')}-error`);
+      if (errorElement) {
+        errorElement.classList.add('hidden');
+      }
+      const inputElement = document.getElementById(`field-${field.replace('_', '-')}`);
+      if (inputElement) {
+        inputElement.style.borderColor = '';
+      }
     }
     
     function validateEmail(email) {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
     
-    nameInput.addEventListener('blur', () => {
-      nameInput.value.trim().length < 2 ? showError('name', errorMessages.name) : clearError('name');
+    nomeInput.addEventListener('blur', () => {
+      nomeInput.value.trim().length < 2 ? showError('nome', errorMessages.nome) : clearError('nome');
+    });
+    
+    cognomeInput.addEventListener('blur', () => {
+      cognomeInput.value.trim().length < 2 ? showError('cognome', errorMessages.cognome) : clearError('cognome');
     });
     
     emailInput.addEventListener('blur', () => {
       !validateEmail(emailInput.value) ? showError('email', errorMessages.email) : clearError('email');
+    });
+    
+    sessoSelect.addEventListener('change', () => {
+      !sessoSelect.value ? showError('sesso', errorMessages.sesso) : clearError('sesso');
+    });
+    
+    dataNascitaInput.addEventListener('blur', () => {
+      !dataNascitaInput.value ? showError('data_nascita', errorMessages.data_nascita) : clearError('data_nascita');
     });
     
     trackSelect.addEventListener('change', () => {
@@ -263,11 +346,18 @@
       e.preventDefault();
       let isValid = true;
       
-      if (nameInput.value.trim().length < 2) {
-        showError('name', errorMessages.name);
+      if (nomeInput.value.trim().length < 2) {
+        showError('nome', errorMessages.nome);
         isValid = false;
       } else {
-        clearError('name');
+        clearError('nome');
+      }
+      
+      if (cognomeInput.value.trim().length < 2) {
+        showError('cognome', errorMessages.cognome);
+        isValid = false;
+      } else {
+        clearError('cognome');
       }
       
       if (!validateEmail(emailInput.value)) {
@@ -275,6 +365,20 @@
         isValid = false;
       } else {
         clearError('email');
+      }
+      
+      if (!sessoSelect.value) {
+        showError('sesso', errorMessages.sesso);
+        isValid = false;
+      } else {
+        clearError('sesso');
+      }
+      
+      if (!dataNascitaInput.value) {
+        showError('data_nascita', errorMessages.data_nascita);
+        isValid = false;
+      } else {
+        clearError('data_nascita');
       }
       
       if (!trackSelect.value) {
