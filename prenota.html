@@ -67,135 +67,174 @@
     </nav>
   </header>
 
-  <main class="pt-12 w-full flex-grow flex items-center justify-center px-6 py-20">
-    <div class="w-full max-w-md">
-      <div class="text-center mb-10">
-        <h1 class="section-title text-3xl sm:text-4xl mb-3">Prenota il tuo posto</h1>
-        <p class="text-base text-[var(--text-secondary)]">Le classi sono a numero chiuso. Compila il modulo per bloccare la tua iscrizione.</p>
+  <main class="pt-12 w-full flex-grow">
+    <section class="w-full py-20 md:py-28 bg-[var(--bg-secondary)]">
+      <div class="max-w-[1024px] mx-auto px-6 text-center">
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6" style="background: rgba(0, 113, 227, 0.12);">
+          <i data-lucide="user-plus" class="w-10 h-10" style="color: var(--apple-blue);"></i>
+        </div>
+        <h1 class="section-title text-3xl sm:text-4xl mb-4">Iscriviti alla Summer School</h1>
+        <p class="text-base text-[var(--text-secondary)] max-w-2xl mx-auto">Le classi sono a numero chiuso. Compila il modulo per prenotare il tuo posto.</p>
       </div>
-      
-      <form id="registration-form" class="space-y-5" novalidate>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-sm font-medium text-[var(--text-primary)] mb-2" for="field-nome">Nome</label>
-            <input 
-              id="field-nome" 
-              name="nome" 
-              type="text" 
-              required 
-              autocomplete="given-name"
-              aria-required="true"
-              aria-describedby="nome-error"
-              class="w-full"
-              placeholder="Mario"
-            >
-            <p id="nome-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
+    </section>
+    
+    <section class="max-w-[800px] mx-auto px-6 py-16">
+      <div class="bg-[var(--bg-primary)] rounded-3xl p-8 md:p-12 shadow-lg">
+        <form id="registration-form" class="space-y-8" novalidate>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-semibold text-[var(--text-primary)] mb-3" for="field-nome">Nome</label>
+              <input 
+                id="field-nome" 
+                name="nome" 
+                type="text" 
+                required 
+                autocomplete="given-name"
+                aria-required="true"
+                aria-describedby="nome-error"
+                class="w-full px-5 py-4 text-base rounded-2xl"
+                placeholder="Mario"
+                style="border: 2px solid var(--border-color);"
+              >
+              <p id="nome-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-semibold text-[var(--text-primary)] mb-3" for="field-cognome">Cognome</label>
+              <input 
+                id="field-cognome" 
+                name="cognome" 
+                type="text" 
+                required 
+                autocomplete="family-name"
+                aria-required="true"
+                aria-describedby="cognome-error"
+                class="w-full px-5 py-4 text-base rounded-2xl"
+                placeholder="Rossi"
+                style="border: 2px solid var(--border-color);"
+              >
+              <p id="cognome-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
+            </div>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-semibold text-[var(--text-primary)] mb-3" for="field-email">Email</label>
+              <input 
+                id="field-email" 
+                name="email" 
+                type="email" 
+                required 
+                autocomplete="email"
+                aria-required="true"
+                aria-describedby="email-error"
+                class="w-full px-5 py-4 text-base rounded-2xl"
+                placeholder="mario.rossi@email.com"
+                style="border: 2px solid var(--border-color);"
+              >
+              <p id="email-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-semibold text-[var(--text-primary)] mb-3" for="field-telefono">Telefono</label>
+              <input 
+                id="field-telefono" 
+                name="telefono" 
+                type="tel" 
+                required 
+                autocomplete="tel"
+                aria-required="true"
+                aria-describedby="telefono-error"
+                class="w-full px-5 py-4 text-base rounded-2xl"
+                placeholder="+39 333 123 4567"
+                style="border: 2px solid var(--border-color);"
+              >
+              <p id="telefono-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
+            </div>
+          </div>
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-semibold text-[var(--text-primary)] mb-3" for="field-sesso">Sesso</label>
+              <select 
+                id="field-sesso" 
+                name="sesso"
+                required 
+                aria-required="true"
+                aria-describedby="sesso-error"
+                class="w-full px-5 py-4 text-base rounded-2xl"
+                style="border: 2px solid var(--border-color);"
+              >
+                <option value="">Seleziona...</option>
+                <option value="maschio">Maschio</option>
+                <option value="femmina">Femmina</option>
+                <option value="altro">Altro</option>
+                <option value="preferisco-non-dire">Preferisco non dirlo</option>
+              </select>
+              <p id="sesso-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-semibold text-[var(--text-primary)] mb-3" for="field-data-nascita">Data di Nascita</label>
+              <input 
+                id="field-data-nascita" 
+                name="data_nascita" 
+                type="date" 
+                required 
+                aria-required="true"
+                aria-describedby="data-nascita-error"
+                class="w-full px-5 py-4 text-base rounded-2xl"
+                style="border: 2px solid var(--border-color);"
+              >
+              <p id="data-nascita-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
+            </div>
           </div>
           
           <div>
-            <label class="block text-sm font-medium text-[var(--text-primary)] mb-2" for="field-cognome">Cognome</label>
-            <input 
-              id="field-cognome" 
-              name="cognome" 
-              type="text" 
-              required 
-              autocomplete="family-name"
-              aria-required="true"
-              aria-describedby="cognome-error"
-              class="w-full"
-              placeholder="Rossi"
-            >
-            <p id="cognome-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
-          </div>
-        </div>
-        
-        <div>
-          <label class="block text-sm font-medium text-[var(--text-primary)] mb-2" for="field-email">Indirizzo Email</label>
-          <input 
-            id="field-email" 
-            name="email" 
-            type="email" 
-            required 
-            autocomplete="email"
-            aria-required="true"
-            aria-describedby="email-error"
-            class="w-full"
-            placeholder="mario.rossi@email.com"
-          >
-          <p id="email-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
-        </div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-sm font-medium text-[var(--text-primary)] mb-2" for="field-sesso">Sesso</label>
+            <label class="block text-sm font-semibold text-[var(--text-primary)] mb-3" for="field-track">Seleziona il Percorso</label>
             <select 
-              id="field-sesso" 
-              name="sesso"
+              id="field-track" 
+              name="track"
               required 
               aria-required="true"
-              aria-describedby="sesso-error"
-              class="w-full"
+              aria-describedby="track-error"
+              class="w-full px-5 py-4 text-base rounded-2xl"
+              style="border: 2px solid var(--border-color);"
             >
-              <option value="">Seleziona...</option>
-              <option value="maschio">Maschio</option>
-              <option value="femmina">Femmina</option>
-              <option value="altro">Altro</option>
-              <option value="preferisco-non-dire">Preferisco non dirlo</option>
+              <option value="">Scegli un'opzione...</option>
+              <option value="iot">Internet of Things</option>
+              <option value="ai">Artificial Intelligence</option>
+              <option value="cyber">Cyberworld</option>
             </select>
-            <p id="sesso-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
+            <p id="track-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
           </div>
           
-          <div>
-            <label class="block text-sm font-medium text-[var(--text-primary)] mb-2" for="field-data-nascita">Data di Nascita</label>
-            <input 
-              id="field-data-nascita" 
-              name="data_nascita" 
-              type="date" 
-              required 
-              aria-required="true"
-              aria-describedby="data-nascita-error"
-              class="w-full"
-            >
-            <p id="data-nascita-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
+          <div class="flex items-start gap-3">
+            <input type="checkbox" id="privacy" required class="w-5 h-5 mt-0.5 rounded" style="accent-color: var(--apple-blue);">
+            <label for="privacy" class="text-sm text-[var(--text-secondary)]">
+              Accetto la <a href="#" class="text-[var(--apple-blue)] hover:underline">Privacy Policy</a> e i <a href="#" class="text-[var(--apple-blue)] hover:underline">Termini di Servizio</a>
+            </label>
+          </div>
+          
+          <button type="submit" class="btn-apple btn-apple-primary w-full text-base py-4">
+            Invia Candidatura
+          </button>
+        </form>
+        
+        <div id="form-success" class="hidden text-center py-12" role="status" aria-live="polite">
+          <div class="inline-flex items-center justify-center w-20 h-20 rounded-full mb-6" style="background: rgba(48, 209, 88, 0.12);" aria-hidden="true">
+            <i data-lucide="check-circle" class="w-10 h-10" style="color: var(--apple-emerald);"></i>
+          </div>
+          <p class="font-semibold text-2xl text-[var(--text-primary)] mb-2">Registrazione completata!</p>
+          <p class="text-[var(--text-secondary)]">Ti abbiamo inviato un'email con tutti i dettagli.</p>
+          <div class="mt-8">
+            <a href="index.html" class="btn-apple btn-apple-secondary inline-flex items-center">
+              <i data-lucide="arrow-left" class="w-4 h-4 mr-2" aria-hidden="true"></i> Torna alla Home
+            </a>
           </div>
         </div>
-        
-        <div>
-          <label class="block text-sm font-medium text-[var(--text-primary)] mb-2" for="field-track">Seleziona il Percorso</label>
-          <select 
-            id="field-track" 
-            name="track"
-            required 
-            aria-required="true"
-            aria-describedby="track-error"
-            class="w-full"
-          >
-            <option value="">Scegli un'opzione...</option>
-            <option value="iot">Internet of Things</option>
-            <option value="ai">Artificial Intelligence</option>
-            <option value="cyber">Cyberworld</option>
-          </select>
-          <p id="track-error" class="mt-2 text-sm text-red-500 hidden" role="alert"></p>
-        </div>
-        
-        <button type="submit" class="btn-apple btn-apple-primary w-full mt-6">
-          Invia Candidatura
-        </button>
-      </form>
-
-      <div id="form-success" class="hidden text-center py-8" role="status" aria-live="polite">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style="background: rgba(48, 209, 88, 0.12);" aria-hidden="true">
-          <i data-lucide="check-circle" class="w-8 h-8" style="color: var(--apple-emerald);"></i>
-        </div>
-        <p class="font-semibold text-xl text-[var(--text-primary)]">Registrazione completata!</p>
-        <p class="text-[var(--text-secondary)] mt-2">Ti abbiamo inviato un'email con tutti i dettagli.</p>
-        <div class="mt-8">
-          <a href="index.html" class="btn-apple btn-apple-secondary inline-flex items-center">
-            <i data-lucide="arrow-left" class="w-4 h-4 mr-2" aria-hidden="true"></i> Torna alla Home
-          </a>
-        </div>
       </div>
-    </div>
+    </section>
   </main>
 
   <footer class="w-full py-8 text-center px-6 bg-[var(--bg-secondary)]">
@@ -278,6 +317,7 @@
     const nomeInput = document.getElementById('field-nome');
     const cognomeInput = document.getElementById('field-cognome');
     const emailInput = document.getElementById('field-email');
+    const telefonoInput = document.getElementById('field-telefono');
     const sessoSelect = document.getElementById('field-sesso');
     const dataNascitaInput = document.getElementById('field-data-nascita');
     const trackSelect = document.getElementById('field-track');
@@ -286,6 +326,7 @@
       nome: 'Inserisci un nome valido (minimo 2 caratteri)',
       cognome: 'Inserisci un cognome valido (minimo 2 caratteri)',
       email: 'Inserisci un indirizzo email valido',
+      telefono: 'Inserisci un numero di telefono valido',
       sesso: 'Seleziona il sesso',
       data_nascita: 'Inserisci una data di nascita valida',
       track: 'Seleziona un percorso'
@@ -318,6 +359,10 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
     
+    function validatePhone(phone) {
+      return /^[\d\s\+\-\(\)]{8,}$/.test(phone);
+    }
+    
     nomeInput.addEventListener('blur', () => {
       nomeInput.value.trim().length < 2 ? showError('nome', errorMessages.nome) : clearError('nome');
     });
@@ -328,6 +373,10 @@
     
     emailInput.addEventListener('blur', () => {
       !validateEmail(emailInput.value) ? showError('email', errorMessages.email) : clearError('email');
+    });
+    
+    telefonoInput.addEventListener('blur', () => {
+      !validatePhone(telefonoInput.value) ? showError('telefono', errorMessages.telefono) : clearError('telefono');
     });
     
     sessoSelect.addEventListener('change', () => {
@@ -365,6 +414,13 @@
         isValid = false;
       } else {
         clearError('email');
+      }
+      
+      if (!validatePhone(telefonoInput.value)) {
+        showError('telefono', errorMessages.telefono);
+        isValid = false;
+      } else {
+        clearError('telefono');
       }
       
       if (!sessoSelect.value) {
